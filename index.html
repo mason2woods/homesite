@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home-个人导航之家</title>
+    <meta name="keywords" content="个人导航之家,Home,导航,新闻,体育,视频,网址大全">
+    <meta name="author" content="masonwoods">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: url(images/bj-bodyx.jpg) no-repeat center/cover fixed;
+            min-height: 100vh;
+        }
+        ul, ol { list-style: none; }
+        a { text-decoration: none; color: #333; }
+        a:hover { color: #f08300; }
+
+        .container-main {
+            width: 55%;
+            min-width: 440px;
+            margin: 1px auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 头部 */
+        .header {
+            background: linear-gradient(to bottom, #f0f0f0, #fff);
+            border: 1px solid #cecece;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-left { color: #666; font-size: 13px; }
+        .header-left span { color: #009a44; margin: 0 5px; }
+        #clock, #datetime { color: #666; }
+        .header-actions { display: flex; gap: 10px; }
+        .header-btn {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .btn-manage { background: #2196F3; color: white; }
+        .btn-manage:hover { background: #1976D2; }
+        .btn-manage.active { background: #ff9800; }
+        .btn-reset { background: #9e9e9e; color: white; }
+        .btn-reset:hover { background: #757575; }
+
+        /* 天气和搜索 */
+        .top-section {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #cecece;
+            border-top: none;
+            padding: 15px;
+        }
+        .weather { text-align: center; margin-bottom: 10px; }
+        .weather iframe { border: none; }
+
+        .search-box {
+            background: url(images/bj.png);
+            padding: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .search-engine-wrap { position: relative; }
+        .search-engine {
+            padding: 8px 12px;
+            border: 1px solid #2d78f4;
+            border-radius: 6px 0 0 6px;
+            background: #33CCFF;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            appearance: none;
+            padding-right: 25px;
+        }
+        .search-engine option { background: white; color: #333; }
+        .search-engine-wrap::after {
+            content: "▼";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 10px;
+            pointer-events: none;
+        }
+        .search-input-wrap {
+            position: relative;
+            flex: 1;
+            max-width: 450px;
+        }
+        .search-input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #2d78f4;
+            border-radius: 0 6px 6px 0;
+            padding: 0 45px 0 15px;
+            font-size: 16px;
+        }
+        .search-engine-wrap + .search-input-wrap .search-input {
+            margin-left: -1px;
+        }
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 32px;
+            background: url(images/search.jpg) no-repeat center;
+            background-size: cover;
+            border: 1px solid #BFBFBF;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .suggest-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #F5F5F5;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 100;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .suggest-box li {
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .suggest-box li:hover { background: #e5e5e5; }
+
+        /* 导航内容 */
+        .nav-section {
+            border: 1px solid #cecece;
+            border-top: 2px solid #009b4d;
+            background: rgba(255,255,255,0.95);
+        }
+        .nav-tabs {
+            display: flex;
+            background: linear-gradient(to bottom, #f0f0f0, #fff);
+            border-bottom: 1px solid #eee;
+        }
+        .nav-tab {
+            padding: 12px 30px;
+            cursor: pointer;
+            border-right: 1px solid #eaeaea;
+            font-size: 14px;
+            background: linear-gradient(to bottom, #e1e1e1, #fff);
+        }
+        .nav-tab.active {
+            background: #fff;
+            border-bottom: 1px solid #fff;
+            font-weight: bold;
+        }
+        .nav-content {
+            padding: 20px;
+            background: url(images/white.png);
+        }
+
+        /* 管理模式工具栏 */
+        .manage-toolbar {
+            display: none;
+            padding: 10px 15px;
+            background: #fff3e0;
+            border-bottom: 1px solid #ffe0b2;
+            align-items: center;
+            gap: 15px;
+        }
+        .manage-toolbar.active { display: flex; }
+        .manage-toolbar span { color: #e65100; font-size: 13px; }
+        .manage-toolbar button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .btn-add-category { background: #4CAF50; color: white; }
+        .btn-add-category:hover { background: #45a049; }
+        .btn-exit-manage { background: #757575; color: white; }
+        .btn-exit-manage:hover { background: #616161; }
+
+        /* 分类标题 */
+        .category-title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .category-title:first-child { margin-top: 0; }
+        .category-title img { width: 13px; height: 7px; }
+        .category-name-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* 删除分类按钮 */
+        .category-delete {
+            display: none;
+            position: absolute;
+            right: -12px;
+            top: -8px;
+            width: 18px;
+            height: 18px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 11px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .manage-mode .category-delete { display: flex; }
+        .category-delete:hover { background: #d32f2f; }
+
+        /* 添加网站按钮 */
+        .site-add-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #f0f0f0;
+            border: 2px dashed #999;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #666;
+            transition: all 0.2s;
+        }
+        .manage-mode .site-add-btn { display: flex; }
+        .site-add-btn:hover {
+            background: #e8f4e8;
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+
+        /* 网站列表 */
+        .site-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .site-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .drag-handle {
+            display: none;
+            cursor: move;
+            color: #999;
+            font-size: 12px;
+            margin-right: 4px;
+            padding: 0 4px;
+            user-select: none;
+        }
+        .manage-mode .site-item {
+            cursor: move;
+        }
+        .manage-mode .drag-handle {
+            display: inline;
+        }
+        .site-item.dragging {
+            opacity: 0.5;
+        }
+        .site-item.drag-over {
+            transform: translateY(2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .site-item a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            font-size: 20px;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .site-item a:hover {
+            background: #e8f4e8;
+            border-color: #c8e6c9;
+        }
+        .site-favicon {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+        .site-delete {
+            display: none;
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 18px;
+            height: 18px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .manage-mode .site-delete { display: flex; }
+        .site-delete:hover { background: #d32f2f; }
+
+        /* 页脚 */
+        .footer {
+            background: url(images/bj.png);
+            border: 1px solid #cecece;
+            border-top: none;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+        .footer a { color: #009a44; margin: 0 5px; }
+
+        /* 模态框 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .modal h3 { margin-bottom: 15px; font-size: 18px; }
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .modal-input:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        .input-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+        .input-row .modal-input { flex: 1; }
+        .btn-fetch {
+            padding: 10px 15px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-fetch:hover { background: #1976D2; }
+        .btn-fetch:disabled { background: #ccc; cursor: not-allowed; }
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .modal-buttons button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-confirm { background: #4CAF50; color: white; }
+        .btn-cancel { background: #999; color: white; }
+
+        /* 获取状态 */
+        .fetch-status {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .fetch-status.success { color: #4CAF50; }
+        .fetch-status.error { color: #f44336; }
+
+        @media (max-width: 768px) {
+            body { background: #f5f5f5; }
+            .container-main { width: 98%; min-width: auto; }
+            .header { flex-wrap: wrap; gap: 8px; }
+            .header-actions { display: none; }
+            .search-box { flex-wrap: wrap; }
+            .search-input-wrap { width: 100%; }
+            .search-engine-wrap + .search-input-wrap .search-input { margin-left: 0; border-radius: 6px; margin-top: 8px; }
+            .site-list { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-main">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="header-left">
+                您好，欢迎来到<span>个人导航之家</span>！
+                <span id="datetime"></span>
+                <span id="clock"></span>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn btn-reset" id="resetBtn" onclick="resetData()" style="display:none;">↺ 恢复默认</button>
+            </div>
+        </div>
+
+        <!-- 天气和搜索 -->
+        <div class="top-section">
+            <div class="weather">
+                <iframe width="460" height="85" src="https://i.tianqi.com/index.php?c=code&id=9" scrolling="no"></iframe>
+            </div>
+            <div class="search-box">
+                <div class="search-engine-wrap">
+                    <select class="search-engine" id="searchEngine" onchange="saveEngine()">
+                        <option value="baidu">百度</option>
+                        <option value="google">谷歌</option>
+                    </select>
+                </div>
+                <div class="search-input-wrap">
+                    <input type="text" class="search-input" id="searchInput" placeholder="请输入关键词" autofocus>
+                    <button class="search-btn" id="searchBtn"></button>
+                    <ul class="suggest-box" id="suggestBox"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航内容 -->
+        <div class="nav-section">
+            <div class="nav-tabs">
+                <div class="nav-tab active">网址大全</div>
+                <div style="margin-left:auto; display:flex; align-items:center; padding-right:15px;">
+                    <button class="header-btn btn-manage" id="manageBtn" onclick="toggleManageMode()">⚙️ 管理</button>
+                </div>
+            </div>
+            <!-- 管理工具栏 -->
+            <div class="manage-toolbar" id="manageToolbar">
+                <span>📝 管理模式：点击"+"添加网站，点击"×"删除，拖拽网站可排序</span>
+                <button class="btn-add-category" onclick="showAddCategoryModal()">+ 添加分类</button>
+                <button class="btn-exit-manage" onclick="toggleManageMode()">退出管理</button>
+            </div>
+            <div class="nav-content" id="navContent"></div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <a href="https://github.com/mason2woods/home" target="_blank">Github</a>丨
+            <a href="https://gitee.com/linkes/home" target="_blank">Gitee</a>丨
+            <a href="https://docs.qq.com/form/page/DV1loR3N4UFhtSmhE" target="_blank">网站留言</a>
+            <p style="margin-top:8px;">Copyright 2019-2025 © Woods. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- 添加/编辑网站模态框 -->
+    <div class="modal-overlay" id="siteModal">
+        <div class="modal">
+            <h3>添加网站</h3>
+            <div class="input-row">
+                <input type="text" class="modal-input" id="siteUrl" placeholder="网站地址 (如: www.example.com)" style="flex:1;">
+                <button class="btn-fetch" id="fetchBtn" onclick="fetchSiteInfo()">自动获取</button>
+            </div>
+            <input type="text" class="modal-input" id="siteName" placeholder="网站名称">
+            <input type="hidden" id="siteCategory">
+            <input type="hidden" id="siteFavicon">
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">取消</button>
+                <button class="btn-confirm" onclick="saveSite()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加分类模态框 -->
+    <div class="modal-overlay" id="categoryModal">
+        <div class="modal">
+            <h3>添加分类</h3>
+            <input type="text" class="modal-input" id="categoryName" placeholder="分类名称（会自动添加★）">
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeCategoryModal()">取消</button>
+                <button class="btn-confirm" onclick="saveCategory()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== 默认数据 =====
+        const defaultData = {
+            categories: [
+                {
+                    name: "★常用AI网址",
+                    sites: [
+                        { name: "Google", url: "https://www.google.com/", icon: null },
+                        { name: "AI Studio", url: "https://aistudio.google.com/", icon: null },
+                        { name: "Gemini", url: "https://gemini.google.com/", icon: null },
+                        { name: "ChatGPT", url: "https://chatgpt.com/", icon: null },
+                        { name: "Grok", url: "https://grok.com/", icon: null },
+                        { name: "智普清言", url: "https://chatglm.cn/", icon: null },
+                        { name: "Manus", url: "https://manus.im/", icon: null },
+                        { name: "DeepSeek", url: "https://chat.deepseek.com/", icon: null },
+                        { name: "韩文翻译", url: "https://chat.deepseek.com/a/chat/s/01033ea1-a558-4ea4-93a5-30c20f9cb145", icon: null },
+                        { name: "英语翻译", url: "https://chat.deepseek.com/a/chat/s/43771a57-ff1c-49f8-a7a8-f43354f3359b", icon: null },
+                        { name: "机械大佬", url: "https://chat.deepseek.com/a/chat/s/74cbd5d9-431a-40b1-9921-e9d8bf54ac52", icon: null },
+                        { name: "Poe", url: "https://poe.com/", icon: null },
+                        { name: "Kimi", url: "https://www.kimi.com/", icon: null },
+                        { name: "豆包", url: "https://www.doubao.com/", icon: null }
+                    ]
+                },
+                {
+                    name: "★机械常用网址",
+                    sites: [
+                        { name: "Robot交付进度", url: "https://doc.weixin.qq.com/", icon: null },
+                        { name: "软件库", url: "https://mp.weixin.qq.com/s/WIaG_Kx-qZqA74uux_CZxA", icon: null },
+                        { name: "Festo产品", url: "https://www.festo.com.cn/", icon: null },
+                        { name: "MISUMI", url: "https://www.misumi.com.cn/", icon: null },
+                        { name: "igus CAD", url: "https://www.igus-cad.com/", icon: null },
+                        { name: "上银HIWIN", url: "https://www.hiwin.tw/", icon: null },
+                        { name: "南京工艺", url: "http://www.njyigong.cn/", icon: null },
+                        { name: "THK", url: "https://www.thk.com/", icon: null },
+                        { name: "NSK", url: "https://www.nsk.com.cn/", icon: null },
+                        { name: "schaeffler", url: "https://interchange.schaeffler.com/changeLanguage.do?lang=2", icon: null },
+                        { name: "CADENAS", url: "https://www.cadenas.de/", icon: null },
+                        { name: "鸿元轴承", url: "https://www.lyzcyrt.com/", icon: null },
+                        { name: "洛阳轴承", url: "http://www.lyc.cn/", icon: null },
+                        { name: "Spieth", url: "https://www.spieth-maschinenelemente.de/en/", icon: null },
+                        { name: "同飞制冷", url: "http://www.tfzl.com/", icon: null },
+                        { name: "锐科激光", url: "http://www.raycuslaser.com/", icon: null },
+                        { name: "南京煜宸", url: "http://www.raycham.com/", icon: null },
+                        { name: "BECKHOFF", url: "http://www.beckhoff.com.cn/", icon: null },
+                        { name: "三菱电机", url: "https://mitsubishielectric.yangben.cn/", icon: null },
+                        { name: "TC骨架油封", url: "https://docs.qq.com/sheet/DV25GcE52TkNQQWRl?tab=BB08J2", icon: null },
+                        { name: "YSR精密锁紧螺母", url: "https://docs.qq.com/doc/DV0lMWHJrbG9KaWR1", icon: null },
+                        { name: "普通平键尺寸", url: "https://docs.qq.com/doc/DV1JoZ1FtVlVsTG9r", icon: null },
+                        { name: "沉孔尺寸", url: "https://docs.qq.com/doc/DV2NWeW1od3ZMdVl0", icon: null },
+                        { name: "扳手轴孔尺寸", url: "https://docs.qq.com/doc/DV0dGcmVmcG1mZmh6", icon: null },
+                        { name: "螺纹底孔尺寸", url: "https://docs.qq.com/doc/DRXVIUk5XU0p5clBF", icon: null },
+                        { name: "O型圈", url: "https://docs.qq.com/doc/DV2FFdWJNaEdaenls", icon: null },
+                        { name: "轴用挡圈", url: "https://docs.qq.com/doc/DV2l0TEtWV3NxbkZU", icon: null },
+                        { name: "孔用挡圈", url: "https://docs.qq.com/doc/DV0FsV29QY2tleHpG", icon: null },
+                        { name: "SooPAT", url: "http://www.soopat.com/", icon: null }
+                    ]
+                },
+                {
+                    name: "★常用网址",
+                    sites: [
+                        { name: "百度一下", url: "https://www.baidu.com/", icon: null },
+                        { name: "有道翻译", url: "https://fanyi.youdao.com/", icon: null },
+                        { name: "百度网盘", url: "https://pan.baidu.com/", icon: null },
+                        { name: "高德地图", url: "https://www.amap.com/", icon: null },
+                        { name: "IT之家", url: "https://www.ithome.com/", icon: null },
+                        { name: "白描OCR", url: "https://web.baimiaoapp.com/", icon: null },
+                        { name: "PearOCR", url: "https://pearocr.com/", icon: null },
+                        { name: "在线PS", url: "https://ps.gaoding.com/", icon: null },
+                        { name: "快递100", url: "https://www.kuaidi100.com/", icon: null },
+                        { name: "简繁体转换", url: "https://www.aies.cn/", icon: null }
+                    ]
+                },
+                {
+                    name: "★新闻",
+                    sites: [
+                        { name: "新浪新闻", url: "https://news.sina.com.cn/", icon: null },
+                        { name: "搜狐新闻", url: "https://news.sohu.com/", icon: null },
+                        { name: "澎湃新闻", url: "https://www.thepaper.cn/", icon: null }
+                    ]
+                },
+                {
+                    name: "★视频网站",
+                    sites: [
+                        { name: "爱酷看看", url: "https://www.ikukk.com/", icon: null },
+                        { name: "哔哩哔哩", url: "https://www.bilibili.com/", icon: null },
+                        { name: "抖音", url: "https://www.douyin.com/", icon: null },
+                        { name: "头条号", url: "https://mp.toutiao.com/", icon: null },
+                        { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: null },
+                        { name: "咪咕视频", url: "https://www.miguvideo.com/", icon: null },
+                        { name: "虎牙直播", url: "https://www.huya.com/", icon: null },
+                        { name: "YouTube", url: "https://www.youtube.com/", icon: null },
+                        { name: "YTDownloader", url: "https://www.y2mate.com/", icon: null },
+                        { name: "优酷", url: "https://www.youku.com/", icon: null },
+                        { name: "腾讯视频", url: "https://v.qq.com/", icon: null },
+                        { name: "搜狐视频", url: "https://tv.sohu.com/", icon: null }
+                    ]
+                },
+                {
+                    name: "★白嫖之家",
+                    sites: [
+                        { name: "Steam", url: "https://store.steampowered.com/", icon: null },
+                        { name: "EPIC", url: "https://www.epicgames.com/", icon: null },
+                        { name: "GOG", url: "https://www.gog.com/", icon: null },
+                        { name: "jd-scripts", url: "https://hub.docker.com/r/hbstarjason/jd-scripts", icon: null }
+                    ]
+                },
+                {
+                    name: "★购物",
+                    sites: [
+                        { name: "淘宝", url: "https://www.taobao.com/", icon: null },
+                        { name: "京东", url: "https://www.jd.com/", icon: null },
+                        { name: "苏宁", url: "https://www.suning.com/", icon: null },
+                        { name: "Amazon", url: "https://www.amazon.com/", icon: null },
+                        { name: "eBay", url: "https://www.ebay.com/", icon: null },
+                        { name: "什么值得买", url: "https://www.smzdm.com/", icon: null }
+                    ]
+                },
+                {
+                    name: "★体育",
+                    sites: [
+                        { name: "新浪体育", url: "https://sports.sina.com.cn/", icon: null },
+                        { name: "腾讯体育", url: "https://sports.qq.com/", icon: null },
+                        { name: "虎扑体育", url: "https://www.hupu.com/", icon: null },
+                        { name: "直播吧", url: "https://www.zhibo8.cc/", icon: null },
+                        { name: "CCTV5", url: "https://sports.cctv.com/", icon: null }
+                    ]
+                }
+            ]
+        };
+
+        // ===== 存储管理 =====
+        const Storage = {
+            DATA_KEY: 'home_nav_data_v2',
+            ENGINE_KEY: 'home_search_engine',
+            ICON_CACHE_KEY: 'home_icon_cache_v1',
+            
+            getData() {
+                try {
+                    const data = localStorage.getItem(this.DATA_KEY);
+                    return data ? JSON.parse(data) : JSON.parse(JSON.stringify(defaultData));
+                } catch (e) {
+                    return JSON.parse(JSON.stringify(defaultData));
+                }
+            },
+            
+            saveData(data) {
+                localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+            },
+            
+            getEngine() {
+                return localStorage.getItem(this.ENGINE_KEY) || 'baidu';
+            },
+            
+            saveEngine(engine) {
+                localStorage.setItem(this.ENGINE_KEY, engine);
+            },
+            
+            reset() {
+                localStorage.removeItem(this.DATA_KEY);
+                localStorage.removeItem(this.ENGINE_KEY);
+                localStorage.removeItem(this.ICON_CACHE_KEY);
+                return JSON.parse(JSON.stringify(defaultData));
+            },
+
+            // 获取图标缓存
+            getIconCache() {
+                try {
+                    const cache = localStorage.getItem(this.ICON_CACHE_KEY);
+                    return cache ? JSON.parse(cache) : {};
+                } catch (e) {
+                    return {};
+                }
+            },
+
+            // 保存图标缓存
+            saveIconCache(cache) {
+                localStorage.setItem(this.ICON_CACHE_KEY, JSON.stringify(cache));
+            },
+
+            // 获取缓存的图标
+            getCachedIcon(domain) {
+                const cache = this.getIconCache();
+                const item = cache[domain];
+                return item ? item.data : null;
+            },
+
+            // 设置缓存图标
+            setCachedIcon(domain, data) {
+                const cache = this.getIconCache();
+                cache[domain] = {
+                    data: data,
+                    time: Date.now()
+                };
+                this.saveIconCache(cache);
+            }
+        };
+
+        // ===== 全局状态 =====
+        let navData = Storage.getData();
+        let isManageMode = false;
+
+        // ===== 获取Favicon =====
+        function getFaviconUrl(url) {
+            try {
+                const domain = new URL(url).hostname;
+                // 优先从 Google 获取
+                return `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // 获取本地图标路径（Google失败时使用）
+        function getLocalFaviconUrl(url) {
+            try {
+                const domain = new URL(url).hostname;
+                return `images/favicons/${domain}.png`;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // 处理图标加载失败：Google(1s) → 本地(1s) → 默认LOGO(1s)
+        window.onIconError = function(img, url) {
+            const currentSrc = img.src || '';
+            const startTime = parseInt(img.dataset.loadStart || '0');
+            const elapsed = Date.now() - startTime;
+            
+            // 如果当前是Google的且未超时1秒，尝试本地图标
+            if (currentSrc.includes('google.com/s2/favicons') && elapsed < 1000) {
+                const localUrl = getLocalFaviconUrl(url);
+                if (localUrl && localUrl !== currentSrc) {
+                    // 延迟切换到本地，确保总时间控制
+                    setTimeout(() => {
+                        if (img.src === currentSrc) { // 还没加载成功才切换
+                            img.src = localUrl;
+                        }
+                    }, Math.max(0, 1000 - elapsed));
+                    return;
+                }
+            }
+            
+            // 如果本地也失败了，使用本导航LOGO（确保在2秒内）
+            if (currentSrc.includes('favicons/') && elapsed < 2000) {
+                setTimeout(() => {
+                    if (!img.complete || img.naturalWidth === 0) {
+                        img.src = 'images/favicon.ico';
+                    }
+                }, Math.max(0, 2000 - elapsed));
+                return;
+            }
+            
+            // 如果已经是默认LOGO或总时间超过3秒，隐藏
+            if (currentSrc.includes('favicon.ico') || elapsed >= 3000) {
+                img.style.display = 'none';
+                return;
+            }
+            
+            // 使用本导航的logo作为默认
+            img.src = 'images/favicon.ico';
+        };
+
+        // 初始化图标加载计时
+        window.initIconLoad = function(img) {
+            img.dataset.loadStart = Date.now();
+            // 3秒总超时，强制结束
+            setTimeout(() => {
+                if (!img.complete || img.naturalWidth === 0) {
+                    img.style.display = 'none';
+                }
+            }, 3000);
+        };
+
+        // 预加载并缓存图标
+        async function preloadAndCacheIcon(url) {
+            try {
+                const domain = new URL(url).hostname;
+                
+                // 检查是否已有缓存
+                const cached = Storage.getCachedIcon(domain);
+                if (cached) {
+                    return cached;
+                }
+                
+                // 获取favicon URL
+                const faviconUrl = getFaviconUrl(url);
+                if (!faviconUrl) return null;
+                
+                // 尝试加载并转换为base64
+                try {
+                    const response = await fetch(faviconUrl);
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const base64 = await blobToBase64(blob);
+                        Storage.setCachedIcon(domain, base64);
+                        return base64;
+                    }
+                } catch (e) {
+                    // fetch失败，返回原始URL
+                }
+                
+                return faviconUrl;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // Blob转Base64
+        function blobToBase64(blob) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        }
+
+        // 获取图标URL（优先从Google，失败时本地备份）
+        function getIconUrl(url) {
+            try {
+                const domain = new URL(url).hostname;
+                // 先检查缓存
+                const cached = Storage.getCachedIcon(domain);
+                if (cached) {
+                    return cached;
+                }
+                // 优先返回Google链接
+                return getFaviconUrl(url);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // ===== 渲染 =====
+        function render() {
+            const container = document.getElementById('navContent');
+            container.innerHTML = navData.categories.map((cat, catIndex) => `
+                <div class="category-title">
+                    <span class="category-name-wrap">${cat.name}
+                        <button class="category-delete" onclick="deleteCategory(${catIndex})" title="删除分类">×</button>
+                    </span>
+                    <img src="images/next.png" alt="">
+                </div>
+                <div class="site-list">
+                    ${cat.sites.map((site, siteIndex) => {
+                        const favicon = site.icon || getIconUrl(site.url);
+                        const onloadAttr = favicon ? `onload="initIconLoad(this); onIconLoad(this, '${site.url}')"` : '';
+                        return `
+                        <div class="site-item" draggable="true" data-cat="${catIndex}" data-idx="${siteIndex}" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+                            <span class="drag-handle">⋮⋮</span>
+                            <a href="${site.url}" target="_blank" title="${site.name}">
+                                ${favicon ? `<img src="${favicon}" class="site-favicon" alt="" onerror="onIconError(this, '${site.url}')" ${onloadAttr}>` : ''}
+                                ${site.name}
+                            </a>
+                            <button class="site-delete" onclick="deleteSite(${catIndex}, ${siteIndex})" title="删除">×</button>
+                        </div>
+                        `;
+                    }).join('')}
+                    <div class="site-add-btn" onclick="showAddSiteModal(${catIndex})" title="添加网站">+</div>
+                </div>
+            `).join('');
+
+            // 更新管理模式样式
+            if (isManageMode) {
+                container.classList.add('manage-mode');
+            } else {
+                container.classList.remove('manage-mode');
+            }
+        }
+
+        // ===== 管理模式 =====
+        function toggleManageMode() {
+            isManageMode = !isManageMode;
+            const btn = document.getElementById('manageBtn');
+            const toolbar = document.getElementById('manageToolbar');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            if (isManageMode) {
+                btn.classList.add('active');
+                btn.textContent = '✓ 完成';
+                toolbar.classList.add('active');
+                resetBtn.style.display = 'inline-block';
+            } else {
+                btn.classList.remove('active');
+                btn.textContent = '⚙️ 管理';
+                toolbar.classList.remove('active');
+                resetBtn.style.display = 'none';
+            }
+            render();
+        }
+
+        // ===== 添加网站 =====
+        function showAddSiteModal(catIndex) {
+            document.getElementById('siteUrl').value = '';
+            document.getElementById('siteName').value = '';
+            document.getElementById('siteFavicon').value = '';
+            document.getElementById('siteCategory').value = catIndex;
+            document.getElementById('fetchBtn').disabled = false;
+            document.getElementById('fetchBtn').textContent = '自动获取';
+            document.getElementById('siteModal').style.display = 'flex';
+            document.getElementById('siteUrl').focus();
+        }
+
+        async function fetchSiteInfo() {
+            const urlInput = document.getElementById('siteUrl').value.trim();
+            if (!urlInput) {
+                alert('请先输入网站地址');
+                return;
+            }
+
+            // 格式化URL
+            let url = urlInput;
+            if (!/^https?:\/\//i.test(url)) {
+                url = 'https://' + url;
+            }
+
+            const btn = document.getElementById('fetchBtn');
+            btn.disabled = true;
+            btn.textContent = '获取中...';
+
+            try {
+                const domain = new URL(url).hostname;
+                
+                // 检查是否已有缓存
+                let favicon = Storage.getCachedIcon(domain);
+                
+                // 没有缓存则尝试获取
+                if (!favicon) {
+                    favicon = getFaviconUrl(url);
+                }
+                
+                document.getElementById('siteFavicon').value = favicon || '';
+
+                // 尝试获取网站标题（通过API服务）
+                try {
+                    // 使用 allorigins 代理获取标题
+                    const titleResponse = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+                    const data = await titleResponse.json();
+                    const html = data.contents;
+                    
+                    // 解析标题
+                    const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+                    if (titleMatch && titleMatch[1]) {
+                        const title = titleMatch[1].trim();
+                        // 清理标题，移除常见的后缀
+                        const cleanTitle = title
+                            .replace(/[-|]\s*.*$/g, '')
+                            .replace(/_.*$/g, '')
+                            .replace(/首页.*$/g, '')
+                            .trim();
+                        if (cleanTitle && !document.getElementById('siteName').value) {
+                            document.getElementById('siteName').value = cleanTitle;
+                        }
+                    }
+                } catch (e) {
+                    // 如果获取失败，使用域名作为名称
+                    if (!document.getElementById('siteName').value) {
+                        document.getElementById('siteName').value = domain.replace(/^www\./, '');
+                    }
+                }
+
+                btn.textContent = '✓ 已获取';
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = '自动获取';
+                }, 1500);
+
+            } catch (e) {
+                btn.textContent = '获取失败';
+                btn.disabled = false;
+            }
+        }
+
+        function saveSite() {
+            let url = document.getElementById('siteUrl').value.trim();
+            const name = document.getElementById('siteName').value.trim();
+            const favicon = document.getElementById('siteFavicon').value;
+            const catIndex = parseInt(document.getElementById('siteCategory').value);
+            
+            if (!url || !name) {
+                alert('请填写完整信息');
+                return;
+            }
+            
+            // 自动添加协议
+            if (!/^https?:\/\//i.test(url)) {
+                url = 'https://' + url;
+            }
+            
+            const site = { name, url, icon: favicon || null };
+            navData.categories[catIndex].sites.push(site);
+            Storage.saveData(navData);
+            render();
+            closeModal();
+        }
+
+        function deleteSite(catIndex, siteIndex) {
+            if (confirm('确定要删除这个网站吗？')) {
+                navData.categories[catIndex].sites.splice(siteIndex, 1);
+                Storage.saveData(navData);
+                render();
+            }
+        }
+
+        // ===== 拖拽排序 =====
+        let dragSrcEl = null;
+        let dragSrcCat = null;
+        let dragSrcIdx = null;
+
+        function dragStart(e) {
+            dragSrcEl = e.target;
+            dragSrcCat = parseInt(e.target.dataset.cat);
+            dragSrcIdx = parseInt(e.target.dataset.idx);
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.innerHTML);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            const target = e.target.closest('.site-item');
+            if (target && target !== dragSrcEl) {
+                target.classList.add('drag-over');
+            }
+        }
+
+        function dragDrop(e) {
+            e.preventDefault();
+            const target = e.target.closest('.site-item');
+            if (!target || target === dragSrcEl) return;
+
+            const targetCat = parseInt(target.dataset.cat);
+            const targetIdx = parseInt(target.dataset.idx);
+
+            // 只允许在同一分类内拖动
+            if (dragSrcCat === targetCat) {
+                const sites = navData.categories[dragSrcCat].sites;
+                const movedSite = sites.splice(dragSrcIdx, 1)[0];
+                sites.splice(targetIdx, 0, movedSite);
+                Storage.saveData(navData);
+                render();
+            }
+        }
+
+        function dragEnd(e) {
+            e.target.classList.remove('dragging');
+            document.querySelectorAll('.site-item').forEach(el => el.classList.remove('drag-over'));
+            dragSrcEl = null;
+            dragSrcCat = null;
+            dragSrcIdx = null;
+        }
+
+        // ===== 分类操作 =====
+        function showAddCategoryModal() {
+            document.getElementById('categoryName').value = '';
+            document.getElementById('categoryModal').style.display = 'flex';
+        }
+
+        function saveCategory() {
+            let name = document.getElementById('categoryName').value.trim();
+            if (!name) {
+                alert('请输入分类名称');
+                return;
+            }
+            
+            if (!name.startsWith('★')) {
+                name = '★' + name;
+            }
+            
+            navData.categories.push({ name, sites: [] });
+            Storage.saveData(navData);
+            render();
+            closeCategoryModal();
+        }
+
+        function deleteCategory(catIndex) {
+            if (confirm('确定要删除这个分类及其所有网站吗？')) {
+                navData.categories.splice(catIndex, 1);
+                Storage.saveData(navData);
+                render();
+            }
+        }
+
+        // ===== 恢复默认 =====
+        function resetData() {
+            if (confirm('确定要恢复默认设置吗？所有自定义添加的内容将被清除！')) {
+                navData = Storage.reset();
+                document.getElementById('searchEngine').value = 'baidu';
+                render();
+            }
+        }
+
+        // ===== 模态框 =====
+        function closeModal() {
+            document.getElementById('siteModal').style.display = 'none';
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('categoryModal').style.display = 'none';
+        }
+
+        // 点击外部关闭
+        document.querySelectorAll('.modal-overlay').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if (e.target === el) el.style.display = 'none';
+            });
+        });
+
+        // ===== 搜索引擎 =====
+        function saveEngine() {
+            const engine = document.getElementById('searchEngine').value;
+            Storage.saveEngine(engine);
+        }
+
+        function loadEngine() {
+            const engine = Storage.getEngine();
+            document.getElementById('searchEngine').value = engine;
+        }
+
+        // ===== 搜索功能 =====
+        const searchInput = document.getElementById('searchInput');
+        const suggestBox = document.getElementById('suggestBox');
+        let searchTimer = null;
+
+        function doSearch() {
+            const keyword = searchInput.value.trim();
+            if (!keyword) return;
+            
+            const engine = document.getElementById('searchEngine').value;
+            let url;
+            
+            if (engine === 'google') {
+                url = `https://www.google.com/search?q=${encodeURIComponent(keyword)}`;
+            } else {
+                url = `https://www.baidu.com/s?wd=${encodeURIComponent(keyword)}`;
+            }
+            
+            window.open(url);
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', doSearch);
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') doSearch();
+        });
+
+        // 百度搜索建议
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.trim();
+            if (!keyword) {
+                suggestBox.style.display = 'none';
+                return;
+            }
+            
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = `https://www.baidu.com/su?wd=${encodeURIComponent(keyword)}&cb=handleSuggest`;
+                document.body.appendChild(script);
+            }, 200);
+        });
+
+        window.handleSuggest = function(res) {
+            const results = res.s.slice(0, 5);
+            if (results.length === 0) {
+                suggestBox.style.display = 'none';
+            } else {
+                suggestBox.innerHTML = results.map(item => 
+                    `<li onclick="selectSuggest('${item.replace(/'/g, "\\'")}')">${item}</li>`
+                ).join('');
+                suggestBox.style.display = 'block';
+            }
+            document.querySelectorAll('script[src*="baidu.com/su"]').forEach(s => s.remove());
+        };
+
+        window.selectSuggest = function(keyword) {
+            searchInput.value = keyword;
+            suggestBox.style.display = 'none';
+            doSearch();
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-input-wrap')) {
+                suggestBox.style.display = 'none';
+            }
+        });
+
+        // ===== 时钟 =====
+        function updateClock() {
+            const now = new Date();
+            const weekdays = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            document.getElementById('datetime').textContent = now.toLocaleString('zh-CN');
+            document.getElementById('clock').textContent = weekdays[now.getDay()];
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // ===== 初始化 =====
+        loadEngine();
+        render();
+    </script>
+</body>
+</html>

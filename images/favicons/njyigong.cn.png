@@ -1,0 +1,1108 @@
+<!--由中企动力科技集团股份有限公司南京分公司技术部设计制作  如果您有任何意见或建议请电邮dm-nanjing@300.cn -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>南京工艺装备制造股份有限公司</title>               
+<meta name="keywords" content="南京工艺,南京工艺直线导轨,南京工艺滚珠丝杠,南京工艺装备制造股份有限公司,行星丝杠,圆弧导轨,滚珠花键,南京工艺丝杠,GZB导轨,GGB导轨">
+<meta name="description" content="南京工艺装备制造股份有限公司在滚动功能部件领域潜心研究，专业制造，积累了70年的丰富经验，并以技术、装备、规模、品牌、文化等诸多优势，在“大型、高速、高精、替代进口”方面独具特色。公司为高新技术企业，工信部制造业单项冠军示范企业，入选国务院国企改革领导小组办公室公布的“科改示范企业”名单。">
+<meta name='viewport' content='width=1440' />
+
+<link href="//static202.yun300.cn/public/css/cecc/animate.css,iconfont.css,bootstrap.min.css,response.min.css?v=1775098374000&tenantId=235244&viewType=1" rel="stylesheet" type="text/css" />
+<link href="//static202.yun300.cn/css/site_impt_r.css?v=1775098374000&tenantId=235244&viewType=1" rel="stylesheet" type="text/css" />
+<link href="//static202.yun300.cn/css/page_impt_home.css?v=1775098374000&tenantId=235244&viewType=1" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<script>
+  window.onload=function(){
+  // 百度统计
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?944fcc97004580d7e61a67a4253951ad";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);  }
+</script>
+<meta name='viewport' content='width=1440' />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<script type="text/javascript">
+    window.siteIsPc=true;
+    window.foreignList= [];
+    window.tenant = {"cdnFlag":"2","createTime":null,"domain":"www.njyigong.cn","domainInfo":null,"foreign":true,"id":235244,"language":"zh_CN","mobileDomain":"","mobileStatus":8,"status":6,"templateCode":"global_site_advanced","tenantCode":"100001_2104025456","unittype":"100001","verify":"9f089b61345f30ab1b257c84502961ce","mverify":""};
+    window.commonShortUrl = ("http://www.ceurl.cn" == "") ? "" : "http://www.ceurl.cn" + "/";
+    window.upgradeVersion="c53199364893ba32ec8ce8a0e9faf7fc";
+    var isxinnet = "false";
+    window.noredirectCookieName = "_noredirect";
+    var visittrack_siteId = "100001_2104025456";
+    var visittrack_url = "";
+    var gatherScripts = "";
+    var unittype=window.tenant.unittype ;
+    window.globalObj={};
+    window.globalObj.isOpenSSL = false;
+    
+    if(!(unittype == '100009'||unittype == '100084' ||unittype == '100007' )){  
+        window.intelligetJump={"identification":"false"};//智能跳转
+    }
+    if(unittype == '100001'){
+        window.getMultilingual={"website":"{\"en\":\"en.njyigong.cn\",\"zh_CN\":\"www.njyigong.cn\"}","switcher":"on"};//多语言和获取网站url对象
+    }
+
+    try{
+        var setDomain = window.location.hostname.replace("http://", "").replace("https://", "");
+        if (setDomain.match(/[a-z]+/) != null) {
+            var domainArr = setDomain.split(".");
+            var preDomain=domainArr[domainArr.length - 2] + "."
+                + domainArr[domainArr.length - 1];
+            if(/(com|cn|org|net|xin|edu|ac)\..*/.test(preDomain)){
+                preDomain=domainArr[domainArr.length - 3]+"."+domainArr[domainArr.length - 2] + "."
+                    + domainArr[domainArr.length - 1];
+            }
+            document.domain = preDomain;
+        }
+    }catch(e){
+        console.log(e);
+    }
+
+</script>
+<script type="text/javascript" src="//static202.yun300.cn/public/wgt/coreLibs/cecc/interwords/interwords_zh_CN.min.js,libs.min.js?v=c53199364893ba32ec8ce8a0e9faf7fc&tenantId=235244&viewType=1"></script>
+<script>
+    $(function(){
+        // 灰色主题
+        if(!(unittype == '100009'||unittype == '100084' ||unittype == '100007' )){
+            var qxurl = location.href.replace(location.origin,'')
+            if(qxurl == '/' || qxurl == '') {
+                var grayStatus = {"greySwitchStatus":"false"};
+                var greySwitchStatusData = {};
+                if(typeof(grayStatus) == 'string' && /^{/.test(grayStatus)){
+                    greySwitchStatusData = JSON.parse(grayStatus);
+                }else if(typeof(grayStatus) == 'object'){
+                    greySwitchStatusData = grayStatus;
+                }
+                if(greySwitchStatusData && greySwitchStatusData.greySwitchStatus == 'true'){ 
+                    $("html").css("cssText", "filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1) !important");
+                    $("html").css("cssText", "-webkit-filter: grayscale(100%) !important");
+                }
+            }
+            // 飘窗
+            require(['/public/cjgj/common.js'], function(){})
+        }
+    });
+    if(!(window.tenant.unittype=='100084'||window.tenant.unittype=='100009')&&isFrontEnv()&&!window.noAuth){
+        var qxurl = location.href.replace(location.origin,'')
+        if(qxurl != '/') {
+            $.ajax({
+                url:'/comp/authtion.do',
+                method:'get',
+                data:{
+                    url:qxurl
+                },
+                success:function(res){
+                    if(res.status == 300 && res.data!=''){
+                        window.location.href=res.data
+                    }
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            }); 
+        }
+    }
+</script><meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc,mobile" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<!--[if lt IE 9]> 
+<script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+<![endif]-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ssl.gstatic.com 'unsafe-eval'; script-src 'self' *.yun300.cn push.zhanzhang.baidu.com jspassport.ssl.qhimg.com kxlogo.knet.cn 'unsafe-inline' 'unsafe-eval'; object-src 'self'; style-src 'self' fonts.googleapis.com *.yun300.cn 'unsafe-inline'; font-src 'self' data: fonts.gstatic.com *.yun300.cn; img-src 'self' *.yun300.cn rr.knet.cn api.share.baidu.com data: content:; media-src *; connect-src *" />
+<link rel="stylesheet" href="/upload/css/css.css" />
+<link type="text/css" href="/upload/css/lv_animation.css?t=1775522006463" rel="stylesheet" />
+
+<meta name="bytedance-verification-code" content="oOUQk0yYuE1x21gH2JAT" />
+
+</head>
+<body data-pageid="a107b912-10ef-48c2-8cd1-192f3ea269ef" data-layout="flow">
+	<div class="main pagebox"><div id="w_grid-1585016292310" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585016292310-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585016324197" class="w_grid-001"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585016324197-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585016372040" class="w_grid-003"><div class="w_grid ">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585016372040-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_fimg-1585016845034" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="/home.html" class="e_link e_link-000 p_link001" target="_self">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/333_05.jpg?tenantId=235244&viewType=1&k=1775098374000" alt="返回首页" title="返回首页" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>         <div id="content_box-1585016372040-1" class="e_box e_box-000 d_gridCell_1 p_gridCell"><div id="w_fimg-1585016846692" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="/contact.html" class="e_link e_link-000 p_link001" target="_self">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/333_07.jpg?tenantId=235244&viewType=1&k=1775098374000" alt="在线留言" title="在线留言" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>         <div id="content_box-1585016372040-2" class="e_box e_box-000 d_gridCell_2 p_gridCell"><div id="w_fimg-1585016848899" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="http://en.njyigong.cn/" class="e_link e_link-000 p_link001" target="_blank">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/333_02.jpg?tenantId=235244&viewType=1&k=1775098374000" alt="这是描述信息" title="这是描述信息" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>       </div>  </div></div></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1565070347598" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1565070347598-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585017403217" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585017403217-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585017403233" class="w_grid-001"><div class="w_grid ">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585017403233-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_fimg-1585017403242" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="/" class="e_link e_link-000 p_link001" target="_self">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/xxlogo3.png?tenantId=235244&viewType=1&k=1775098374000" alt="ol" title="ol" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>         <div id="content_box-1585017403233-1" class="e_box e_box-000 d_gridCell_1 p_gridCell"><div id="c_portalResnav_main-15850174039784272" class="c_portalResnav_main-01001"> 
+	<!-- 导航 -->
+		<header class="header">
+			<div class="container clearfix">
+				<div class=" nav">
+					<ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
+												<li class="dropdown">
+                    <a class="navNameLink" href="/">网站首页</a>
+						
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/intro/17.html">关于工艺</a>
+						
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/intro/17.html">关于我们</a>
+																<a class="navNameLink" href="/product/55/">荣誉资质</a>
+																<a class="navNameLink" href="/intro/25.html">设备能力</a>
+																<a class="navNameLink" href="/intro/26.html">公司历程</a>
+																<a class="navNameLink" href="/intro/27.html">公司文化</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/product/54/">产品展示</a>
+						
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/product/58/">滚动导轨副</a>
+																<a class="navNameLink" href="/product/59/">滚珠丝杠副</a>
+																<a class="navNameLink" href="/product/60/">滚动花键副</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/product/63/">模组</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/product/62/">行星滚柱丝杠副</a>
+																<a class="navNameLink" href="/product/61/">数控精密工作台</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/news/1/">新闻资讯</a>
+						
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/news/3/">公司新闻</a>
+																<a class="navNameLink" href="/news/4/">行业动态</a>
+																<a class="navNameLink" href="/news/14/">展会资讯</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/news/15/">招标公告</a>
+																<a class="navNameLink" href="/news/16/">信息公开</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/companyfile/1/">资料下载</a>
+						
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/about1.html?introId=30">加入我们</a>
+						
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/contact.html">联系我们</a>
+						
+                   						</li>
+                					</ul>
+				</div>
+				<a href="javascript:void(0)" id="navToggle">
+					<span></span>
+				</a>
+			</div>
+		</header>
+
+<!--移动端的导航-->
+		<div class="m_nav">
+			<div class="top clearfix">
+              <i class="iconfont closed">&#xe6d3;</i>
+				
+			</div>
+			<ul class="ul" data-in="fadeInDown" data-out="fadeOutUp">
+				
+				
+										<li class="dropdown">
+                    <a class="navNameLink" href="/">网站首页</a>
+								                           
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/intro/17.html">关于工艺</a>
+								                         <i class="iconfont jt">&#xe6ae;</i>
+                                                  
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/intro/17.html">关于我们</a>
+																<a class="navNameLink" href="/product/55/">荣誉资质</a>
+																<a class="navNameLink" href="/intro/25.html">设备能力</a>
+																<a class="navNameLink" href="/intro/26.html">公司历程</a>
+																<a class="navNameLink" href="/intro/27.html">公司文化</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/product/54/">产品展示</a>
+								                         <i class="iconfont jt">&#xe6ae;</i>
+                                                  
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/product/58/">滚动导轨副</a>
+																<a class="navNameLink" href="/product/59/">滚珠丝杠副</a>
+																<a class="navNameLink" href="/product/60/">滚动花键副</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/product/63/">模组</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/product/62/">行星滚柱丝杠副</a>
+																<a class="navNameLink" href="/product/61/">数控精密工作台</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/news/1/">新闻资讯</a>
+								                         <i class="iconfont jt">&#xe6ae;</i>
+                                                  
+                   							<div class="dropdown_menu">
+                      								<a class="navNameLink" href="/news/3/">公司新闻</a>
+																<a class="navNameLink" href="/news/4/">行业动态</a>
+																<a class="navNameLink" href="/news/14/">展会资讯</a>
+																<a class="navNameLink" href="http://www.njyigong.cn/news/15/">招标公告</a>
+																<a class="navNameLink" href="/news/16/">信息公开</a>
+															</div>
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/companyfile/1/">资料下载</a>
+								                           
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/about1.html?introId=30">加入我们</a>
+								                           
+                   						</li>
+                						<li class="dropdown">
+                    <a class="navNameLink" href="/contact.html">联系我们</a>
+								                           
+                   						</li>
+                				
+
+			</ul>
+		</div>
+
+<script>
+			$(function () {
+				//超过一定高度导航添加类名
+				var nav = $("header"); //得到导航对象  
+				var win = $(window); //得到窗口对象  
+				var sc = $(document); //得到document文档对象。  
+				win.scroll(function () {
+					if (sc.scrollTop() >= 100) {
+						nav.addClass("on");
+					} else {
+						nav.removeClass("on");
+					}
+				})
+
+				//移动端展开nav
+				$('#navToggle').on('click', function () {
+					$('.m_nav').addClass('open');
+				})
+				//关闭nav
+				$('.m_nav .top .closed').on('click', function () {
+					$('.m_nav').removeClass('open');
+				})
+
+				//二级导航  移动端
+				$(".m_nav .ul li").click(function () {
+              
+					$(this).children("div.dropdown_menu").slideToggle('slow').end().find('.jt').toggleClass('jtRote');
+					$(this).siblings('li').children('.dropdown_menu').slideUp('slow').end().find('.jt').removeClass('jtRote');
+				});
+
+			})
+
+		</script>
+
+
+ <input type="hidden" class="nav_main_navId" value="&navId=${navId}&compId=portalResnav_main-15850174039784272" />
+</div></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1585017522623" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585017522623-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1585028999264" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585028999264-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585029042086" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585029042086-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1594300595354" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1594300595354-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="c_portalResEbizads_banner-15943005966527881" class="c_portalResEbizads_banner-01001"> 
+
+<div class="bannerBox">
+    <div class=" swiper-container wyz-banner-container">
+        <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                <a href="/products.html?productCateId=54" target="_self">
+                    <div class="content">
+                        <!-- Pc端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/7559df92-9106-4c60-9f8b-691c993d6f8f.jpg?tenantId=235244&viewType=1" class='pc_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                        <!-- Mo端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/7559df92-9106-4c60-9f8b-691c993d6f8f.jpg?tenantId=235244&viewType=1" class='mo_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                    </div>
+                </a>
+            </div>
+                                    <div class="swiper-slide">
+                <a href="/products.html?productCateId=54" target="_self">
+                    <div class="content">
+                        <!-- Pc端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/6bed28e8-0f16-4d8f-a222-0e0e124803cd.jpg?tenantId=235244&viewType=1" class='pc_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                        <!-- Mo端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/6bed28e8-0f16-4d8f-a222-0e0e124803cd.jpg?tenantId=235244&viewType=1" class='mo_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                    </div>
+                </a>
+            </div>
+                                    <div class="swiper-slide">
+                <a href="/products.html?productCateId=54" target="_self">
+                    <div class="content">
+                        <!-- Pc端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/53d91749-6fb3-4840-b75c-cbf5f7542c3c.jpg?tenantId=235244&viewType=1" class='pc_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                        <!-- Mo端 -->
+                        	 <img src="//img202.yun300.cn/repository/image/53d91749-6fb3-4840-b75c-cbf5f7542c3c.jpg?tenantId=235244&viewType=1" class='mo_pic scalePic' title='南京工艺装备制造有限公司'
+                        alt='南京工艺装备制造有限公司' />
+	                    </div>
+                </a>
+            </div>
+                    </div>
+        <div class="pagination banner-pagination"></div>
+    </div>
+    <!-- 切换按钮 -->
+    <div class="swiper-button btn-prev">
+        <i class="iconfont">&#xe6b0;</i>
+    </div>
+    <div class="swiper-button btn-next">
+        <i class="iconfont">&#xe6af;</i>
+    </div>
+</div>
+<script type="text/javascript" src="//dfs.yun300.cn/group1/M00/17/D6/rBQBHF0t2j2EOlsxAAAAAO-8cyI5368.js"></script>
+<script>
+    $("div[id^='c_portalResEbizads_banner']").attr("loaded", "true");
+    $(function () {
+        if (isFrontEnv()) {
+            // 插件引用
+            var bannerSwiper = new Swiper('#c_portalResEbizads_banner-15943005966527881 .wyz-banner-container', {
+                autoplay: {
+                    delay: 2000,
+                    stopOnLastSlide: false,
+                    disableOnInteraction: false,
+                },
+                speed: 1000,
+                loop: true,
+                // 前进后退按钮
+                navigation: {
+                    nextEl: '#c_portalResEbizads_banner-15943005966527881 .btn-next ',
+                    prevEl: '#c_portalResEbizads_banner-15943005966527881 .btn-prev ',
+                },
+                // 分页
+                pagination: {
+                    el: '#c_portalResEbizads_banner-15943005966527881 .pagination',
+                    // 点击控制轮播
+                    clickable: true,
+                },
+                on: {
+                    init: change1,
+                    autoplay: change1,
+                    click: change1,
+                    resize: change1,
+                }
+
+            });
+
+            function change1() {
+                var idx = this.activeIndex,
+                    H;
+                if (document.body.clientWidth > 768) {
+                    H = $('#c_portalResEbizads_banner-15943005966527881 .bannerBox').find('.swiper-slide').eq(idx).find(".pc_pic").height() - 20;
+                } else {
+                    H = $('#c_portalResEbizads_banner-15943005966527881 .bannerBox').find('.swiper-slide').eq(idx).find(".mo_pic").height() - 20;
+                }
+                $('#c_portalResEbizads_banner-15943005966527881 .bannerBox').height(H);
+            }
+        }
+    })
+</script>
+<input class="requsetParam" type="hidden" value="" />
+<input type="hidden" class="requsetID" data-ename="可视化配置" value="&columnId=1" />
+
+</div></div>       </div>  </div></div></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1565070347608" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1565070347608-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585017909620" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585017909620-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585017965103" class="w_grid-001"><div class="w_grid ">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585017965103-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_fimg-1585018015231" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">               <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/hhj.jpg?tenantId=235244&viewType=1&k=1775098374000" alt="这是描述信息" title="这是描述信息" width="100%" height="100%" />           </div>                        </div> </div></div><div id="w_common_text-1565070347943" class="reset_style"><div><p><span style="font-size:2rem"><span style="line-height:1"><span style="color:#000000"><strong>南京</strong></span><span style="color:#1852d8"><strong>工艺装备</strong></span><span style="color:#000000"><strong>制造股份有限公司</strong></span></span></span></p>
+</div></div><div id="w_common_text-1585018097590" class="reset_style"><div>
+<div>
+<p><span style="line-height:1.8"><span style="color:#333333"><span style="font-size:14px"><span style="font-family:微软雅黑">南京工艺装备制造股份有限公司在滚动功能部件领域潜心研究，专业制造，积累了70年的丰富经验，并以技术、装备、规模、品牌、文化等诸多优势，在“大型、高速、高精、替代进口”方面独具特色。公司现为高新技术企业，工信部制造业单项冠军示范企业，入选国务院国企改革领导小组办公室公布的“科改示范企业”名单。</span></span></span></span></p>
+
+<p><span style="line-height:1.8"><span style="color:#333333"><span style="font-size:14px"><span style="font-family:微软雅黑">...</span></span></span></span></p>
+</div>
+</div>
+</div><div id="w_fimg-1585018181067" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="/intro/17.html" class="e_link e_link-000 p_link001" target="_self">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/tu2_07.jpg?tenantId=235244&viewType=1&k=1775098374000" alt="这是描述信息" title="这是描述信息" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>         <div id="content_box-1585017965103-1" class="e_box e_box-000 d_gridCell_1 p_gridCell"><div id="w_grid-1585018281443" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585018281443-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="c_portalResNews_list-15850182821897116" class="c_portalResNews_list-01001"> 
+
+<div>
+<!-- 咨询整体框架开始 -->
+<div class="newListBox">
+    <!-- 咨询整体开始 -->
+    <div class="p_news container">
+        <!-- 单个列表开始 -->
+                      	
+      
+            <div class="  newList1  ">
+            <a href="/news/408.html" target="_self" class="newLinkBox">
+                <div class="centerContentBox">
+                    <h2 class="newTitle">通用技术沈阳机床党委书记郭生一行  考察调研南京工艺</h2>
+                    
+                    <article class="newSummry"></article>
+                  
+                    <div class="readMore">  更多阅读  <i class="iconfont readIcon">&#xe6a7;</i></div>
+                </div>
+            </a>
+        </div>
+             
+      
+                      	
+      
+             <div class="newList">
+            <a href="/news/288.html" target="_self" class="newLinkBox">
+                <div class="leftTimeBox">
+                    <div class="newData">21</div>
+                    <div class="newYearMon">2025-01</div>
+                </div>
+                <div class="centerContentBox">
+                    <h2 class="newTitle">南京工艺成功召开第十七届二次职工代表大会</h2>
+                    <div class="newToolBox">
+                        <span class="data1">
+                            <i class="iconfont icontime">&#xe67a;</i>
+                            发布时间 : 2025-01--21
+                        </span>
+                        <span class="data2">
+                            <i class="iconfont icontime">&#xe679;</i>
+                            点击量 : 983
+                        </span>
+
+                    </div>
+                    <article class="newSummry"></article>
+                </div>
+                <div class="rightIcon">
+                     <img src="//dfs.yun300.cn/group1/M00/16/B7/rBQBG1zc2XWES9COAAAAABKhpsA188.png" alt="查看详情" class="whiteIcon rIcon">
+                     <img src="//dfs.yun300.cn/group1/M00/04/DC/rBQBHVzc2WCEa3kgAAAAAMk6O7I894.png" alt="查看详情" class="redIcon rIcon">
+                </div>
+            </a>
+        </div>
+             
+      
+                      	
+      
+             <div class="newList">
+            <a href="/news/159.html" target="_self" class="newLinkBox">
+                <div class="leftTimeBox">
+                    <div class="newData">27</div>
+                    <div class="newYearMon">2023-01</div>
+                </div>
+                <div class="centerContentBox">
+                    <h2 class="newTitle">开工大吉</h2>
+                    <div class="newToolBox">
+                        <span class="data1">
+                            <i class="iconfont icontime">&#xe67a;</i>
+                            发布时间 : 2023-01--27
+                        </span>
+                        <span class="data2">
+                            <i class="iconfont icontime">&#xe679;</i>
+                            点击量 : 798
+                        </span>
+
+                    </div>
+                    <article class="newSummry"></article>
+                </div>
+                <div class="rightIcon">
+                     <img src="//dfs.yun300.cn/group1/M00/16/B7/rBQBG1zc2XWES9COAAAAABKhpsA188.png" alt="查看详情" class="whiteIcon rIcon">
+                     <img src="//dfs.yun300.cn/group1/M00/04/DC/rBQBHVzc2WCEa3kgAAAAAMk6O7I894.png" alt="查看详情" class="redIcon rIcon">
+                </div>
+            </a>
+        </div>
+             
+      
+                <!-- 单个列表结束 -->
+    </div>
+    <!-- 咨询整体结束 -->
+    <!-- 分页开始 -->
+    <div class="e_box e_OccupyBox-001 p_OccupyBox">
+            
+				<script type="text/javascript">
+				pagingVM=window.pagingVM||{};
+				pagingVM['portalResNews_list-15850182821897116']={
+					totalPage:"8",
+					pageSize:"3",
+					currentPage:"1",
+					turnPageType:'hidden',
+
+					style:"e_pagebox-000",
+					type:"true",
+					styleConfig:{
+						style:'e_MoreBtn-001',
+						zstyle:"p_more"
+					},
+					value:'查看更多',
+					moreGuide:'点击查看更多',
+					loading:{
+						styleConfig:{
+							style:'e_loading-001',
+							zstyle:"p_loading"
+						},
+						value:'正在加载中，请稍后',
+					},
+
+					CommonInteraction:"true",
+					es_CommonSwitchBtnA:'e_IconSwitchBtn-002',
+					es_CommonSwitchBtnB:'e_IconSwitchBtn-002',
+					CommonSummaryBoxA:"true",
+					marquee_position:'down',
+					marquee_horizontal:'center',
+					es_CommonSquareNumBtn:'e_SquareNumBtn-001',
+					SquareNumBtn_size:'0',
+					SquareNumBtn_defWidth:"16",
+					SquareNumBtn_defHeight:"16",
+					marquee_autoPlay:"false",
+					marquee_autoPlayDuration:"3",
+					marquee_speed:"1",
+					scrollDirection:"1",
+					es_scroll:"e_scroll-001",
+					columnNum:"1",
+					lineNum:"3",
+					pre: "上一页",
+					next: "下一页"
+									}
+			</script>
+
+    </div>
+    <!-- 分页结束 -->
+</div>
+<!-- 咨询整体框架结束 -->
+<script type="text/javascript">
+    $comp({
+        textParams:{
+            isCutOfName:true,//标题是否自动截取超长显示内容
+            linesOfCutOfName:1,//标题超出隐藏的行数设置
+            isCutOfSummary:true,//概述是否自动截取超长显示内容
+            linesOfCutOfSummary:3,//概述超出隐藏的行数设置
+            categorySummary:true,//分类概述是否自动截取超长显示内容
+            categorySummaryMaxLen:2//分类概述超出隐藏的行数设置
+        },
+        picParams:{
+            isOpenCutMode:true,//是否开启裁剪
+            imageWidth:200,//设置图片的宽度
+            imageHeight:200,//设置图片的高度
+            definedDefaultImage:false,//是否设置默认图片
+            defaultImage:"",//设置默认图片的值
+            appId:3
+		},
+		moParams:{
+            isOpenCutMode:true,//是否开启裁剪
+            imageWidth:80,//设置图片的宽度
+            imageHeight:80,//设置图片的高度
+            definedDefaultImage:false,//是否设置默认图片
+            defaultImage:"",//设置默认图片的值
+            appId:3
+        },
+        params: {
+            "url": "/comp/portalResNews/list.do?compId=portalResNews_list-15850182821897116&cid=3",
+			"appId": "3",
+			turnPageType:"hidden"
+        },
+        id: "portalResNews_list-15850182821897116", //实例id 服务器传
+        lib: ["js/portalNews/portalResNews_list-01"], //组件js 
+        noDataFlag:""
+    });
+</script>
+<input type="hidden" class="requsetParam" value="&cid=3"/>
+</div>
+</div></div>       </div>  </div></div></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1585018725527" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585018725527-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585018745475" class="w_grid-001"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585018745475-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_common_text-1585018934281" class="reset_style"><div><p style="text-align:center"><span style="color:#000000"><span style="font-family:微软雅黑"><span style="font-size:32px"><strong>产品展示</strong></span></span></span></p>
+</div></div><div id="w_grid-1585021052685" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585021052685-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>       </div>  </div></div><div id="w_fimg-1585019882364" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">               <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/uiooi.png?tenantId=235244&viewType=1&k=1775098374000" alt="这是描述信息" title="这是描述信息" width="100%" height="100%" />           </div>                        </div> </div></div><div id="w_grid-1585021148619" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585021148619-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1590758408961" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1590758408961-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="c_portalResProduct_list-15907584100109003" class="c_portalResProduct_list-01001"> 
+<input type="hidden" class="listAddUrl"
+    value="&gototype=add&productType=0&backType=picview&proshowcaseId=&proparentId=&appId=2">
+<input type="hidden" class="compConfigInProductCategoryId" value="54" />
+<input type="hidden" class="listModifyUrl" value="&proparentId=&appId=2">
+<div class="container">
+    <div class="row p_products">
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/5ca4dc76-2054-48db-ac85-8964e8228873.png_{i}xaf.png?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='滚动圆弧导轨副 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/880.html">
+                    <h3 class="js_title">滚动圆弧导轨副</h3>
+                    <article class="js_article">产品特点
+四方向等载荷:
+继承GGB型四方向等载荷的优点
+系列化程度高:
+实现任意直径大小的圆弧或圆周运动，也可提供不锈钢滚动圆弧导轨副替代回转支承:
+由多段圆弧导轨拼接而成的整圆导轨副可以实现无限循环的圆周运动，替代回转支承安装、维护方便:
+只需采用螺栓安装，易于组装、拆卸
+产品应用:
+太阳能电池设备、卫生设备、医疗机械</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/907844e0-0a89-4341-9672-d85085a317ef.png_{i}xaf.png?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='滚动导轨副 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/882.html">
+                    <h3 class="js_title">滚动导轨副</h3>
+                    <article class="js_article">GZB型滚柱直线导轨副以滚动体为滚柱取代了滚珠，滚动体与滚道的接触方式由点接触变为线接触，大幅提高了滚动直线导轨副的刚性，使机床能够维持更高的加工精度。</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/OyOyzesrQ8KZ_bsbVD38vQ.jpg_{i}xaf.jpg?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='行星滚柱丝杠 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/883.html">
+                    <h3 class="js_title">行星滚柱丝杠</h3>
+                    <article class="js_article">公司建有滚动功能部件全性能试验室，高速滚珠丝杠副60m/min运行时噪音70dB，高速滚动直线导轨副60m/min运行时噪音68dB，为精密卧式加工中心批量配套滚珠丝杠副、滚动导轨副，实现各轴快移速度40m/min、定位精度0.002mm、重复定位精度0.001mm。公司构筑了完备的设备保障体系，建成了高精度滚珠丝杠副、大型滚珠丝杠副、滚动导轨副生产线。公司产品为高速、高精中高档数控机床大批量配套，推进了国产滚动功能部件的提档升级和替代进口。公司多项产品获得国家专利、中国机械工业科学技术奖、国家重点新产品证书等。</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/ncbWJK0kQ76inmQmT3VWRg.jpg_{i}xaf.jpg?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='滚珠丝杠副 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/884.html">
+                    <h3 class="js_title">滚珠丝杠副</h3>
+                    <article class="js_article">公司建有滚动功能部件全性能试验室，高速滚珠丝杠副60m/min运行时噪音70dB，高速滚动直线导轨副60m/min运行时噪音68dB，为精密卧式加工中心批量配套滚珠丝杠副、滚动导轨副，实现各轴快移速度40m/min、定位精度0.002mm、重复定位精度0.001mm。公司构筑了完备的设备保障体系，建成了高精度滚珠丝杠副、大型滚珠丝杠副、滚动导轨副生产线。公司产品为高速、高精中高档数控机床大批量配套，推进了国产滚动功能部件的提档升级和替代进口。公司多项产品获得国家专利、中国机械工业科学技术奖、国家重点新产品证书等。</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/TNY3K8R5RBeZNnNY_YGIAA.jpg_{i}xaf.jpg?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='凸缘式滚珠花键 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/881.html">
+                    <h3 class="js_title">凸缘式滚珠花键</h3>
+                    <article class="js_article">公司建有滚动功能部件全性能试验室，高速滚珠丝杠副60m/min运行时噪音70dB，高速滚动直线导轨副60m/min运行时噪音68dB，为精密卧式加工中心批量配套滚珠丝杠副、滚动导轨副，实现各轴快移速度40m/min、定位精度0.002mm、重复定位精度0.001mm。公司构筑了完备的设备保障体系，建成了高精度滚珠丝杠副、大型滚珠丝杠副、滚动导轨副生产线。公司产品为高速、高精中高档数控机床大批量配套，推进了国产滚动功能部件的提档升级和替代进口。公司多项产品获得国家专利、中国机械工业科学技术奖、国家重点新产品证书等。</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 col">
+            <!-- 图片开始 -->
+            	 <img src="/upload/s.png" lazy-src="//img202.yun300.cn/repository/image/1563a65f-1004-448f-a3da-35a958c2dcf4.png_{i}xaf.png?tenantId=235244&viewType=1&k=1775098374000"  class='js_thumb pic' alt='全电动注塑机丝杠 ' />
+	            <!-- 图片结束 -->
+
+            <!-- 介绍开始 -->
+            <div class="introduce">
+                <a class="d_link" href="/product/885.html">
+                    <h3 class="js_title">全电动注塑机丝杠</h3>
+                    <article class="js_article">CTF型全电动注塑机高负载滚珠丝杠副采用将钢球径设计为导程允许的最大化，增加有效负载钢球，并使用最大化沟槽形状等增加负载容量的高负载设计。配置特殊的密封圈，可有效防止润滑脂飞溅，润滑脂的保持性能大幅提高。仿形密封结构，更贴合丝杠轴螺旋轨道表面，防尘、锁脂能力显著提升;让钢球沿着沟槽切线方向顺畅运转，降低循环部对钢球的冲击，有效降低滚珠丝杠工作时的噪音水平。</article>
+                </a>
+            </div>
+            <!-- 介绍结束 -->
+        </div>
+            </div>
+    <div class="e_box e_OccupyBox-001 p_OccupyBox">
+            
+				<script type="text/javascript">
+				pagingVM=window.pagingVM||{};
+				pagingVM['portalResProduct_list-15907584100109003']={
+					totalPage:"1",
+					pageSize:"6",
+					currentPage:"1",
+					turnPageType:'hidden',
+
+					style:"e_pagebox-000",
+					type:"true",
+					styleConfig:{
+						style:'e_MoreBtn-001',
+						zstyle:"p_more"
+					},
+					value:'查看更多',
+					moreGuide:'点击查看更多',
+					loading:{
+						styleConfig:{
+							style:'e_loading-001',
+							zstyle:"p_loading"
+						},
+						value:'拼命加载中，请稍后',
+					},
+
+					CommonInteraction:"true",
+					es_CommonSwitchBtnA:'e_IconSwitchBtn-002',
+					es_CommonSwitchBtnB:'e_IconSwitchBtn-002',
+					CommonSummaryBoxA:"true",
+					marquee_position:'down',
+					marquee_horizontal:'center',
+					es_CommonSquareNumBtn:'e_SquareNumBtn-001',
+					SquareNumBtn_size:'0',
+					SquareNumBtn_defWidth:"16",
+					SquareNumBtn_defHeight:"16",
+					marquee_autoPlay:"false",
+					marquee_autoPlayDuration:"3",
+					marquee_speed:"1",
+					scrollDirection:"1",
+					es_scroll:"e_scroll-001",
+					columnNum:"3",
+					lineNum:"2",
+					pre: "上一页",
+					next: "下一页"
+									}
+			</script>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $comp({
+        textParams: {
+            isCutOfName: true, //标题是否自动截取超长显示内容
+            linesOfCutOfName: 1, //标题超出隐藏的行数设置
+            isCutOfSummary: true, //概述是否自动截取超长显示内容
+            linesOfCutOfSummary: 2, //概述超出隐藏的行数设置
+            categorySummary: true, //分类概述是否自动截取超长显示内容
+            categorySummaryMaxLen: 2 //分类概述超出隐藏的行数设置
+        },
+        picParams: {
+            isOpenCutMode: true, //是否开启裁剪 不开启false
+            isRate: true, //是否按比例裁剪
+            widthOfRate: 1, //宽度的比率
+            heightOfRate: 1, //高度的比率
+            definedDefaultImage: false, //是否设置默认图片
+            defaultImage: "", //设置默认图片的值
+            appId: 2
+        },
+        ctx: "",
+        appId: "2",
+        productMode: "",
+        requestParam: {"orderType":"","xibcommonId":"","appType":"productCateId","orderColumn":"","productCateId":"54"},
+        pageParam: {
+            url: "/comp/portalResProduct/list.do?compId=portalResProduct_list-15907584100109003",
+            appId: "2",
+            turnPageType: "hidden"
+        },
+        id: "portalResProduct_list-15907584100109003",
+        lib: ["js/portalProduct/portalResProduct_list-01"],
+        imageOpts: {
+
+
+
+
+            //大图高清裁剪, 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
+            "img_display_type": "cut",
+            "box_nav_style_1": "e_box-000",
+            "box_nav_style_0": "e_box",
+            "box_nav_style_2": "p_ThumbnailBox",
+            "e_nav_img_style_1": "e_ProductRelationImg-001",
+            "e_nav_img_style_0": "e_relationimg",
+            "e_nav_img_style_2": "p_thumbnail",
+            "nav_display_status": true, //规格图是否显示，true-显示，false-隐藏
+            "nav_type": "block",
+            "nav_img_display_type": "cut", // 显示状态， 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
+            //规格图宽高比例
+            "nav_scale_x": "4", //宽
+            "nav_scale_y": "3", //高
+            "nav_display_num": "6", //焦点图显示数量
+            "nav_position": "center", //焦点小图位置
+            "nav_display_padding": 10,
+            "nav_step": 1, //切换个数
+            "nav_hover": true,
+
+            /*标记*/
+            "box_tag_style_0": "e_box",
+            "box_tag_style_1": "e_box-000",
+            "box_tag_style_2": "p_TagBox",
+            "e_img_tag_style_0": "e_image",
+            "e_img_tag_style_2": "p_tag",
+            "e_img_tag_style_1": "e_image-000",
+            "img_tag_display": true, //true 显示标记，false 隐藏标记
+            "shiftUpAnimSwitch": false, //是否显示轮播图dom true显示，false不显示
+            "img_tag_display_type": "cut", //产品标记 显示状态， 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
+
+            //移上动画的配置参数
+            //图片遮罩层
+            "box_shade_style_0": "e_MatteBox",
+            "box_shade_style_1": "e_MatteBox-001",
+            "box_shade_style_2": "p_matteA",
+            //动画外层
+            "box_animatOuter_style_0": "e_MatteBox",
+            "box_animatOuter_style_1": "e_MatteBox-000",
+            "box_animatOuter_style_2": "p_matte",
+
+            //动画位置层
+            "box_Position_style_0": "e_box",
+            "box_Position_style_1": "e_PositionBox-001",
+            "box_Position_style_2": "p_Position",
+
+            "comp_type": "productList", //组件类型
+        },
+        sortParams: {
+            "DEFAULT_SORT": {
+                "v": "默认",
+                "title": "默认",
+                "style": ""
+            },
+            "PUBLISH_TIME": {
+                "show": true,
+                "v": "发布时间",
+                "title": "按产品的发布时间进行排序",
+                "style": ""
+            },
+            "PRODUCT_NAME": {
+                "show": true,
+                "v": " 产品名称",
+                "title": "按照产品的名称进行排序",
+                "style": ""
+            },
+            "PVS": {
+                "show": false,
+                "v": "浏览量",
+                "title": "按产品的浏览量进行排序",
+                "style": ""
+            },
+            "comment": {
+                "show": false,
+                "v": "评论数量",
+                "title": "按照产品的评论数量进行排序",
+                "style": ""
+            },
+            "PRODUCT_CODE": {
+                "show": true,
+                "v": "产品编号",
+                "title": "按产品的编号进行排序",
+                "style": ""
+            }
+        },
+        styleId: "c_portalResProduct_list-01001"
+    });
+
+</script>
+
+</div></div>       </div>  </div></div><div id="w_fimg-1585021370812" class="w_fimg-000"><div class="w_img animated  ">  <div class="e_box e_box-000 p_box">   <a href="/product/54/" class="e_link e_link-000 p_link001" target="_self">            <div class="e_image e_DImage-001 p_dimage">            <img src="//img202.yun300.cn/img/gd2.png?tenantId=235244&viewType=1&k=1775098374000" alt="这是描述信息" title="这是描述信息" width="100%" height="100%" />           </div>             </a>           </div> </div></div></div>       </div>  </div></div></div>       </div>  </div></div></div>       </div>  </div></div></div>       </div>  </div></div><div id="w_grid-1585027303906" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585027303906-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_grid-1585027329723" class="w_grid-001"><div class="w_grid ">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1585027329723-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"><div id="w_common_text-1585027414858" class="reset_style"><div><p><span style="font-family:微软雅黑"><span style="color:#FFFFFF"><span style="font-size:24px"><strong>联系我们&nbsp;</strong></span></span><span style="color:#A9A9A9"><span style="font-size:24px"><span style="font-size:16px"><span style="font-family:arial,helvetica,sans-serif">/ CONTACT US</span></span></span></span></span></p>
+</div></div><div id="w_fline-1585027480783" class="w_fline-001"><div class="w_fline">  <div class="e_line e_Hline-001 p_FLine"></div> </div></div><div id="w_common_text-1585027543949" class="reset_style"><div>
+<h1><span style="color:#FFFFFF"><span style="font-size:16px"><span style="font-family:微软雅黑">南京工艺装备制造股份有限公司</span></span></span></h1>
+</div>
+</div><div id="w_common_text-1585027571739" class="reset_style"><div>
+<div>
+<p><strong><span style="line-height:2.3"><span style="font-size:14px"><span style="font-family:微软雅黑"><span style="color:#FFFFFF">地址:南京市江宁区滨江开发区飞鹰路79号<br />
+<span style="font-size:16px">订货热线</span>: 025-</span><a href="tel:025-86561707"><span style="color:#FFFFFF">8656 1707</span></a><span style="color:#FFFFFF"> </span><span style="color:#FFFFFF">/ </span><a href="tel:025-86586220"><span style="color:#FFFFFF">8658 6220</span></a><br />
+<span style="color:#FFFFFF">技术服务热线: 025-</span><a href="tel:025-86586253"><span style="color:#FFFFFF">8658 6253</span></a></span></span><br />
+<span style="color:#FFFFFF">售后咨询：025-8658 6241</span></span></strong></p>
+
+<p><strong><span style="line-height:2.3"><span style="font-size:14px"><span style="font-family:微软雅黑"><span style="color:#FFFFFF">举报电话:&nbsp;025-8658 6228 / 8658 6231</span></span></span></span></strong></p>
+
+<p><strong><span style="line-height:2.3"><span style="font-size:14px"><span style="font-family:微软雅黑"><span style="color:#FFFFFF">举报邮箱:&nbsp;njgyjijc@163.com</span></span></span></span></strong><br />
+<strong><span style="line-height:2.3"><span style="font-size:14px"><span style="font-family:微软雅黑"><a href="http://www.njyigong.cn"><span style="color:#FFFFFF">http://www.njyigong.cn</span></a><br />
+<span style="color:#FFFFFF">E-mail:scb</span><a href="mailto:jm@njyigong.com"><span style="color:#FFFFFF">@njyigong.c</span></a><span style="color:#FFFFFF">n</span></span></span></span></strong></p>
+
+<p><span style="line-height:2.3"><span style="font-size:14px"><span style="font-family:微软雅黑"><a href="https://niyigong.1688.com/"><span style="color:#FFFFFF">1688店铺</span></a><a href="https://niyigong.1688.com/?spm=a261y.7663282.autotrace-topNav.1.1fc134b2hlPrLt"><span style="color:#FFFFFF">&nbsp;</span></a><span style="color:#FFFFFF"> &nbsp; &nbsp; </span><a href="https://nanjinggongyi.cn.made-in-china.com/" target="_blank"><span style="color:#FFFFFF">中国制造网</span></a><span style="color:#FFFFFF">&nbsp; &nbsp; &nbsp; </span><a href="https://chinayigong.cn.china.cn/" target="_blank"><span style="color:#FFFFFF">中国供应商</span></a></span></span></span></p>
+</div>
+</div>
+</div><div id="w_grid-1656405234579" class="w_grid-000"><div class="w_grid signal">   <div class="e_box e_box-000 p_gridbox">         <div id="content_box-1656405234579-0" class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>       </div>  </div></div></div>         <div id="content_box-1585027329723-1" class="e_box e_box-000 d_gridCell_1 p_gridCell"><div id="c_portalResMessage_form-15851893686031139" class="c_portalResMessage_form-01001"> 
+<div class="e_box p_inquiry" data-ename="填写留言表单">
+        <div class="e_wbox p_ConWBox" data-ename="弹窗内容容器">
+        <!--留言应用名称-->
+        <div class="e_box p_NameBox" data-ename="留言应用名称容器">
+            <div class="e_title p_NameB" data-ename="名称标题"><span class="i_messageCategoryName">留言应用名称：</span></div>
+            <div class="e_title p_NameInfoB" data-ename="名称">客户留言</div>
+        </div>
+        <!--留言应用名称 结束-->
+        <!--信息描述-->
+        <div class="e_box p_DepictBoxB" data-ename="描述信息容器">
+            <div class="e_title p_DepicNameB" data-ename="描述引导标题"><span class="i_description">描述：</span></div>
+            <div class="e_title p_DepictInfoB" data-ename="描述"></div>
+        </div>
+        <!--信息描述 结束-->
+        <form id="form" class="form-horizontal d_formItemBox p_productInfoForm" novalidate="novalidate">
+            <input type="hidden" id="categoryId" class="required" name="categoryId" value="1">
+            <input type="hidden" name="compId" class="required" value="portalResMessage_form-15851893686031139">
+            <input type="hidden" name="referer" class="required" value="">
+            <!--联系信息-->
+            <div class="e_box p_ContactInfo" data-ename="信息内容容器">
+                                
+                                                <!--多行文本-->
+                <div class="e_box form-group p_groupBox" data-ename="多行文本容器">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                    <span class="e_title d_formItemStar color_error p_intentionIntroStar">*</span>
+                                                留言内容：
+                    </label>
+                    <div class="e_text p_eqdescInput" data-ename="多行文本输入框">
+                        <!-- 使用disabled不可编辑不可点击，使用readonly不可编辑 -->
+                        <textarea class="InputText form-control" id="" name="item_30" maxlength="5000" class="InputText" maxlength="1000"
+                            placeholder="请输入留言内容"  data-required="true"  tit="留言内容"></textarea>
+                    </div>
+                </div>
+                <!--多行文本-->
+                                                
+                                                <!--单行文本-->
+                                <div data-foreachitem class="e_box form-group p_FullNameBox" data-ename="单行文本信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                姓名：
+                    </label>
+                    <div class="e_input p_FullName" data-ename="单行文本输入框">
+                        <input id="" name="item_22" data-type="1" data-subType="1"
+                            class="InputText form-control" type="text"                             data-required="false"   maxlength="32"
+                             placeholder="请输入姓名" tit="姓名" />
+                        <div class="e_unit p_UnitName"></div>
+                    </div>
+                </div>
+                <!--单行文本 结束-->
+                <!--数字-->
+                                                                
+                                                <!--单选-->
+                                <div class="e_box form-group p_GenderBox" data-ename="单选信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                性别：
+                    </label>
+                    <div class="e_box d_CustomValueBox p_CustomValueBox">
+                        <input type="hidden"  data-required="false"
+                             />
+                                                                        <div data-foreachitem class="e_radio p_sex">
+                            <label class="option" for="23">
+                                <input id="23" class="radio-inline" type="radio" name="item_23" value="1"
+                                    checked="">
+                                男
+                            </label>
+                        </div>
+                                                <div data-foreachitem class="e_radio p_sex">
+                            <label class="option" for="23">
+                                <input id="23" class="radio-inline" type="radio" name="item_23" value="2"
+                                    checked="">
+                                女
+                            </label>
+                        </div>
+                                            </div>
+                </div>
+                <!--单选-->
+                <!--复选框-->
+                                                                
+                                                <!--单行文本-->
+                                <!--手机-->
+                <div class="e_box p_aaa">
+                    <div class="e_box form-group p_PhoneBox" data-ename="手机信息区">
+                        <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                        手机：
+                        </label>
+                        <div class="e_input p_phone" data-ename="手机输入框">
+                            <input id="" name="item_24" class="InputText form-control" maxlength="20" data-type="1"
+                                data-subType="3" type="text"  data-required="false"  placeholder="请输入手机号" tit="手机">
+                        </div>
+                    </div>
+                    <!--手机 结束-->
+                                    </div>
+                <!-- 手机容器 -->
+                <!--电话-->
+                                                                
+                                                <!--单行文本-->
+                                <div class="e_box form-group p_TelephoneBox" data-ename="电话信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                电话：
+                    </label>
+                    <div class="e_input p_telephone" data-ename="电话输入框">
+                        <input id="" name="item_25" class="InputText form-control" maxlength="32" data-type="1"
+                            data-subType="4" type="text"  data-required="false"  placeholder="请输入电话号码" tit="电话">
+                    </div>
+                </div>
+                <!--电话 结束-->
+                <!--邮箱容器-->
+                                                                
+                                                <!--单行文本-->
+                                <div class="e_box form-group p_TelephoneBox" data-ename="电话信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                传真：
+                    </label>
+                    <div class="e_input p_telephone" data-ename="电话输入框">
+                        <input id="" name="item_26" class="InputText form-control" maxlength="32" data-type="1"
+                            data-subType="4" type="text"  data-required="false"  placeholder="请输入传真号码" tit="传真">
+                    </div>
+                </div>
+                <!--电话 结束-->
+                <!--邮箱容器-->
+                                                                
+                                                <!--单行文本-->
+                                <!--邮箱-->
+                <div class="e_box p_aaa">
+                    <div class="e_box form-group p_EmailBox" data-ename="邮箱信息区">
+                        <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                        邮箱：
+                        </label>
+                        <div class="e_input p_email" data-ename="邮箱输入框">
+                            <input id="" name="item_27" class="InputText form-control" maxlength="64" data-type="1"
+                                data-subType="5" type="text"  data-required="false"  placeholder="请输入邮箱" tit="邮箱">
+                        </div>
+                    </div>
+                    <!--邮箱 结束-->
+                    <!-- 邮箱验证码 -->
+                                        <!-- 邮箱验证码 结束 -->
+                </div>
+                <!--邮箱容器 结束-->
+                <!--日期-->
+                                                                
+                                                <!--单行文本-->
+                                <div data-foreachitem class="e_box form-group p_FullNameBox" data-ename="单行文本信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                地址：
+                    </label>
+                    <div class="e_input p_FullName" data-ename="单行文本输入框">
+                        <input id="" name="item_28" data-type="1" data-subType="1"
+                            class="InputText form-control" type="text"                             data-required="false"   maxlength="255"  placeholder="请输入地址" tit="地址" />
+                        <div class="e_unit p_UnitName"></div>
+                    </div>
+                </div>
+                <!--单行文本 结束-->
+                <!--数字-->
+                                                                
+                                                <!--单行文本-->
+                                <div data-foreachitem class="e_box form-group p_FullNameBox" data-ename="单行文本信息区">
+                    <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                                                邮编：
+                    </label>
+                    <div class="e_input p_FullName" data-ename="单行文本输入框">
+                        <input id="" name="item_29" data-type="1" data-subType="1"
+                            class="InputText form-control" type="text"                             data-required="false"   maxlength="128"
+                             placeholder="请输入邮编" tit="邮编" />
+                        <div class="e_unit p_UnitName"></div>
+                    </div>
+                </div>
+                <!--单行文本 结束-->
+                <!--数字-->
+                                                                                                                    <!--验证码-->
+                    <div class="e_box form-group p_CaptchasBox" data-ename="验证码">
+                        <!-- 引导标题 -->
+                        <label for="c_intentionIntro" class="e_title col-sm-2 control-label d_formItemTitle h5 color_normal p_intentionIntroTitle">
+                            <span class="e_title d_formItemStar color_error p_intentionIntroStar">*</span>
+                            <span class="i_captcha"> 验证码：</span>                        </label>
+                        <!-- 引导标题 结束 -->
+                        <!--输入验证码-->
+                        <div class="e_box p_EntryBox" data-ename="输入验证码容器">
+                            <!--验证码输入框-->
+                            <div class="e_input p_EntryInput" data-ename="验证码输入框">
+                                <!-- 使用disabled不可编辑不可点击，使用readonly不可编辑 -->
+                                <input name="captchas" class="InputText form-control inputCaptcha" type="input" data-required="true" value=""
+                                    placeholder="请输入验证码" maxlength="5" tit=" 验证码" data-error=" 验证码错误或已失效">
+                            </div>
+                            <!--验证码输入框 结束-->
+                        </div>
+                        <!--输入验证码 结束-->
+                        <!--验证码图片-->
+                        <div class="e_image p_image" data-ename="验证码图片">
+                            <img src="" width="100%" height="100%" alt="Verification Code">
+                        </div>
+                        <!--验证码图片 结束-->
+                    </div>
+                    <!--验证码结束-->
+                                <!--提交-->
+                <div class="e_wbox p_CoupWBox">
+                    <button type="button" class="btn btn-primary submitPC p_submit" data-ename="提交按钮">提交</button>
+                </div>
+                <!--提交结束-->
+                            </div>
+            <!--联系信息 结束-->
+        </form>
+    </div>
+    <!--弹窗内容容器 结束-->
+        </div>
+<script type="text/javascript">
+    $comp({
+        CorrectRequired: "请正确填写必填项数据！",
+        DataFailed: "提交数据失败！",
+        mp: " 不能为空",
+        number: " 只能输入数字",
+        captchasErrorPrompt: "您输入的验证码有误，或已失效。",
+        correct: " 请输入正确的",
+        correctG: " 请输入正确格式的",
+        hm: " 号码",
+        id: "portalResMessage_form-15851893686031139",
+        lib: ["js/portalMessage/portalResMessage_form-01"],
+        noDataFlag: "",
+        success: "提交成功",
+        submitRepeat: " 1分钟内无法重复提交",
+        submitError: " 暂时无法正常提交，请您稍后再试",
+        submitUrl: "",
+        submitTarget: "",
+        selectId: "1",
+        submitText:"提交"
+    })
+</script>
+
+</div><div id="w_common_text-1585027883593" class="reset_style"><div><p><span style="font-size:14px"><span style="font-family:微软雅黑"><span style="color:#D3D3D3">版权所有：南京工艺装备制造股份有限公司&nbsp; &nbsp; </span><a href="https://beian.miit.gov.cn/"><span style="color:#D3D3D3">苏ICP备2024115199号-2</span></a><span style="color:#D3D3D3">&nbsp; 网站建设：</span><a href="http://www.300.cn/transport/welcom"><span style="color:#D3D3D3">中企动力</span></a><span style="color:#D3D3D3">&nbsp; </span><a href="http://nanjing.300.cn"><span style="color:#D3D3D3">南京</span></a><span style="color:#D3D3D3">&nbsp; <a href="/SEO.html">SEO</a></span></span></span></p>
+</div></div></div>       </div>  </div></div></div>       </div>  </div></div></div>
+
+
+</body>
+</html>
