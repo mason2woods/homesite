@@ -27,19 +27,34 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* 头部 */
+        /* 头部（置顶锁定：滚动时保持在该行） */
         .header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
             background: linear-gradient(to bottom, #f0f0f0, #fff);
             border: 1px solid #cecece;
             padding: 8px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
         }
-        .header-left { color: #666; font-size: 13px; }
+        .header-left {
+            color: #666;
+            font-size: 13px;
+            flex: 1;
+            min-width: 0;
+        }
         .header-left span { color: #009a44; margin: 0 5px; }
         #clock, #datetime { color: #666; }
-        .header-actions { display: flex; gap: 10px; }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
         .header-btn {
             padding: 5px 15px;
             border: none;
@@ -51,8 +66,8 @@
         .btn-manage { background: #2196F3; color: white; }
         .btn-manage:hover { background: #1976D2; }
         .btn-manage.active { background: #ff9800; }
-        .btn-reset { background: #9e9e9e; color: white; }
-        .btn-reset:hover { background: #757575; }
+        .btn-cancel-manage { background: #9e9e9e; color: white; }
+        .btn-cancel-manage:hover { background: #757575; }
 
         /* 天气和搜索 */
         .top-section {
@@ -211,8 +226,32 @@
             font-weight: bold;
             color: #333;
         }
-        .category-title:first-child { margin-top: 0; }
+        .category-block:first-child .category-title { margin-top: 0; }
         .category-title img { width: 13px; height: 7px; }
+        .category-block { position: relative; }
+        .category-drag-handle {
+            display: none;
+            cursor: move;
+            color: #999;
+            font-size: 14px;
+            margin-right: 6px;
+            user-select: none;
+            flex-shrink: 0;
+        }
+        .manage-mode .category-drag-handle { display: inline-block; }
+        .manage-mode .category-title { align-items: center; }
+        .category-block.cat-dragging { opacity: 0.55; }
+        .category-block.cat-drag-over {
+            outline: 2px dashed #2196F3;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+        .site-list.site-list-drag-over {
+            background: rgba(33, 150, 243, 0.08);
+            border-radius: 4px;
+            outline: 1px dashed #90caf9;
+            outline-offset: 2px;
+        }
         .category-name-wrap {
             position: relative;
             display: inline-block;
@@ -429,7 +468,6 @@
             body { background: #f5f5f5; }
             .container-main { width: 98%; min-width: auto; }
             .header { flex-wrap: wrap; gap: 8px; }
-            .header-actions { display: none; }
             .search-box { flex-wrap: wrap; }
             .search-input-wrap { width: 100%; }
             .search-engine-wrap + .search-input-wrap .search-input { margin-left: 0; border-radius: 6px; margin-top: 8px; }
@@ -446,8 +484,9 @@
                 <span id="datetime"></span>
                 <span id="clock"></span>
             </div>
-            <div class="header-actions">
-                <button class="header-btn btn-reset" id="resetBtn" onclick="resetData()" style="display:none;">↺ 恢复默认</button>
+            <div class="header-right">
+                <button class="header-btn btn-manage" id="manageBtn" onclick="toggleManageMode()">⚙️ 管理</button>
+                <button type="button" class="header-btn btn-cancel-manage" id="cancelManageBtn" onclick="cancelManageSession()" style="display:none;">取消</button>
             </div>
         </div>
 
@@ -475,13 +514,10 @@
         <div class="nav-section">
             <div class="nav-tabs">
                 <div class="nav-tab active">网址大全</div>
-                <div style="margin-left:auto; display:flex; align-items:center; padding-right:15px;">
-                    <button class="header-btn btn-manage" id="manageBtn" onclick="toggleManageMode()">⚙️ 管理</button>
-                </div>
             </div>
             <!-- 管理工具栏 -->
             <div class="manage-toolbar" id="manageToolbar">
-                <span>📝 管理模式：点击"+"添加网站，点击"×"删除，拖拽网站可排序</span>
+                <span>📝 管理模式：点击"+"添加网站，点击"×"删除；拖拽网站可排序（可拖入其它分类或列表空白处末尾）；拖拽分类标题左侧 ⋮⋮ 可调整分类顺序；顶部「取消」可放弃本次修改并退出</span>
                 <button class="btn-add-category" onclick="showAddCategoryModal()">+ 添加分类</button>
                 <button class="btn-exit-manage" onclick="toggleManageMode()">退出管理</button>
             </div>
@@ -684,13 +720,6 @@
                 localStorage.setItem(this.ENGINE_KEY, engine);
             },
             
-            reset() {
-                localStorage.removeItem(this.DATA_KEY);
-                localStorage.removeItem(this.ENGINE_KEY);
-                localStorage.removeItem(this.ICON_CACHE_KEY);
-                return JSON.parse(JSON.stringify(defaultData));
-            },
-
             // 获取图标缓存
             getIconCache() {
                 try {
@@ -727,6 +756,8 @@
         // ===== 全局状态 =====
         let navData = Storage.getData();
         let isManageMode = false;
+        /** 进入管理模式瞬间的 navData 深拷贝，用于「取消」放弃本次会话内的修改 */
+        let manageSessionSnapshot = null;
 
         // ===== 获取Favicon =====
         function getFaviconUrl(url) {
@@ -864,18 +895,20 @@
         function render() {
             const container = document.getElementById('navContent');
             container.innerHTML = navData.categories.map((cat, catIndex) => `
+                <div class="category-block" data-cat="${catIndex}">
                 <div class="category-title">
+                    ${isManageMode ? `<span class="category-drag-handle" draggable="true" ondragstart="catDragStart(event)" ondragend="catDragEnd(event)">⋮⋮</span>` : ''}
                     <span class="category-name-wrap">${cat.name}
                         <button class="category-delete" onclick="deleteCategory(${catIndex})" title="删除分类">×</button>
                     </span>
                     <img src="images/next.png" alt="">
                 </div>
-                <div class="site-list">
+                <div class="site-list" data-cat="${catIndex}" ondragover="siteListDragOver(event)" ondragleave="siteListDragLeave(event)" ondrop="siteListDrop(event)">
                     ${cat.sites.map((site, siteIndex) => {
                         const favicon = site.icon || getIconUrl(site.url);
                         const onloadAttr = favicon ? `onload="initIconLoad(this); onIconLoad(this, '${site.url}')"` : '';
                         return `
-                        <div class="site-item" draggable="true" data-cat="${catIndex}" data-idx="${siteIndex}" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
+                        <div class="site-item" draggable="${isManageMode ? 'true' : 'false'}" data-cat="${catIndex}" data-idx="${siteIndex}" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dragDrop(event)" ondragend="dragEnd(event)">
                             <span class="drag-handle">⋮⋮</span>
                             <a href="${site.url}" target="_blank" title="${site.name}">
                                 ${favicon ? `<img src="${favicon}" class="site-favicon" alt="" onerror="onIconError(this, '${site.url}')" ${onloadAttr}>` : ''}
@@ -886,6 +919,7 @@
                         `;
                     }).join('')}
                     <div class="site-add-btn" onclick="showAddSiteModal(${catIndex})" title="添加网站">+</div>
+                </div>
                 </div>
             `).join('');
 
@@ -898,23 +932,51 @@
         }
 
         // ===== 管理模式 =====
-        function toggleManageMode() {
-            isManageMode = !isManageMode;
+        function updateManageModeChrome() {
             const btn = document.getElementById('manageBtn');
             const toolbar = document.getElementById('manageToolbar');
-            const resetBtn = document.getElementById('resetBtn');
-            
+            const cancelBtn = document.getElementById('cancelManageBtn');
             if (isManageMode) {
                 btn.classList.add('active');
                 btn.textContent = '✓ 完成';
                 toolbar.classList.add('active');
-                resetBtn.style.display = 'inline-block';
+                cancelBtn.style.display = 'inline-block';
             } else {
                 btn.classList.remove('active');
                 btn.textContent = '⚙️ 管理';
                 toolbar.classList.remove('active');
-                resetBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
             }
+        }
+
+        function toggleManageMode() {
+            if (isManageMode) {
+                manageSessionSnapshot = null;
+                isManageMode = false;
+            } else {
+                manageSessionSnapshot = JSON.parse(JSON.stringify(navData));
+                isManageMode = true;
+            }
+            updateManageModeChrome();
+            render();
+        }
+
+        function cancelManageSession() {
+            if (!isManageMode || !manageSessionSnapshot) return;
+            const unchanged = JSON.stringify(navData) === JSON.stringify(manageSessionSnapshot);
+            if (unchanged) {
+                manageSessionSnapshot = null;
+                isManageMode = false;
+                updateManageModeChrome();
+                render();
+                return;
+            }
+            if (!confirm('确定放弃本次在管理模式中的修改吗？（将恢复到进入管理时的状态）')) return;
+            navData = JSON.parse(JSON.stringify(manageSessionSnapshot));
+            manageSessionSnapshot = null;
+            Storage.saveData(navData);
+            isManageMode = false;
+            updateManageModeChrome();
             render();
         }
 
@@ -1031,21 +1093,25 @@
             }
         }
 
-        // ===== 拖拽排序 =====
+        // ===== 拖拽排序（网站：跨分类；分类：调整顺序）=====
         let dragSrcEl = null;
         let dragSrcCat = null;
         let dragSrcIdx = null;
+        let dragCatSrc = null;
 
         function dragStart(e) {
-            dragSrcEl = e.target;
-            dragSrcCat = parseInt(e.target.dataset.cat);
-            dragSrcIdx = parseInt(e.target.dataset.idx);
-            e.target.classList.add('dragging');
+            dragCatSrc = null;
+            const el = e.currentTarget;
+            dragSrcEl = el;
+            dragSrcCat = parseInt(el.dataset.cat, 10);
+            dragSrcIdx = parseInt(el.dataset.idx, 10);
+            el.classList.add('dragging');
             e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', e.target.innerHTML);
+            e.dataTransfer.setData('text/plain', 'site');
         }
 
         function dragOver(e) {
+            if (!isManageMode || dragCatSrc !== null) return;
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
             const target = e.target.closest('.site-item');
@@ -1055,30 +1121,125 @@
         }
 
         function dragDrop(e) {
+            if (!isManageMode || dragCatSrc !== null) return;
             e.preventDefault();
             const target = e.target.closest('.site-item');
             if (!target || target === dragSrcEl) return;
 
-            const targetCat = parseInt(target.dataset.cat);
-            const targetIdx = parseInt(target.dataset.idx);
+            const targetCat = parseInt(target.dataset.cat, 10);
+            const targetIdx = parseInt(target.dataset.idx, 10);
+            const fromCat = dragSrcCat;
+            const fromIdx = dragSrcIdx;
 
-            // 只允许在同一分类内拖动
-            if (dragSrcCat === targetCat) {
-                const sites = navData.categories[dragSrcCat].sites;
-                const movedSite = sites.splice(dragSrcIdx, 1)[0];
-                sites.splice(targetIdx, 0, movedSite);
-                Storage.saveData(navData);
-                render();
+            const movedSite = navData.categories[fromCat].sites.splice(fromIdx, 1)[0];
+
+            if (fromCat === targetCat) {
+                let insertIdx = targetIdx;
+                if (fromIdx < targetIdx) insertIdx--;
+                navData.categories[targetCat].sites.splice(insertIdx, 0, movedSite);
+            } else {
+                navData.categories[targetCat].sites.splice(targetIdx, 0, movedSite);
             }
+            Storage.saveData(navData);
+            render();
         }
 
         function dragEnd(e) {
-            e.target.classList.remove('dragging');
+            if (dragSrcEl) dragSrcEl.classList.remove('dragging');
             document.querySelectorAll('.site-item').forEach(el => el.classList.remove('drag-over'));
+            document.querySelectorAll('.site-list').forEach(el => el.classList.remove('site-list-drag-over'));
             dragSrcEl = null;
             dragSrcCat = null;
             dragSrcIdx = null;
         }
+
+        function siteListDragOver(e) {
+            if (!isManageMode || dragCatSrc !== null) return;
+            if (!dragSrcEl) return;
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            e.currentTarget.classList.add('site-list-drag-over');
+        }
+
+        function siteListDragLeave(e) {
+            const list = e.currentTarget;
+            const rel = e.relatedTarget;
+            if (!rel || !list.contains(rel)) {
+                list.classList.remove('site-list-drag-over');
+            }
+        }
+
+        function siteListDrop(e) {
+            if (!isManageMode || dragCatSrc !== null) return;
+            if (e.target.closest('.site-item')) return;
+            e.preventDefault();
+            const list = e.currentTarget;
+            list.classList.remove('site-list-drag-over');
+
+            const targetCat = parseInt(list.dataset.cat, 10);
+            if (!dragSrcEl) return;
+
+            const movedSite = navData.categories[dragSrcCat].sites.splice(dragSrcIdx, 1)[0];
+            navData.categories[targetCat].sites.push(movedSite);
+            Storage.saveData(navData);
+            render();
+        }
+
+        function catDragStart(e) {
+            dragSrcEl = null;
+            dragSrcCat = null;
+            dragSrcIdx = null;
+            const block = e.target.closest('.category-block');
+            if (!block) return;
+            dragCatSrc = parseInt(block.dataset.cat, 10);
+            block.classList.add('cat-dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', 'category');
+        }
+
+        function catDragEnd(e) {
+            dragCatSrc = null;
+            document.querySelectorAll('.category-block').forEach(b => {
+                b.classList.remove('cat-dragging', 'cat-drag-over');
+            });
+        }
+
+        function finishCategoryReorder(toIdx) {
+            if (dragCatSrc === null) return;
+            const from = dragCatSrc;
+            if (from === toIdx) {
+                catDragEnd();
+                return;
+            }
+            const arr = navData.categories;
+            const [item] = arr.splice(from, 1);
+            arr.splice(toIdx, 0, item);
+            Storage.saveData(navData);
+            catDragEnd();
+            render();
+        }
+
+        (function setupNavContentCatDnD() {
+            const nav = document.getElementById('navContent');
+            nav.addEventListener('dragover', function(e) {
+                if (!isManageMode || dragCatSrc === null) return;
+                const block = e.target.closest('.category-block');
+                if (!block) return;
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                const idx = parseInt(block.dataset.cat, 10);
+                document.querySelectorAll('.category-block').forEach(b => b.classList.remove('cat-drag-over'));
+                if (idx !== dragCatSrc) block.classList.add('cat-drag-over');
+            }, true);
+            nav.addEventListener('drop', function(e) {
+                if (!isManageMode || dragCatSrc === null) return;
+                const block = e.target.closest('.category-block');
+                if (!block) return;
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                finishCategoryReorder(parseInt(block.dataset.cat, 10));
+            }, true);
+        })();
 
         // ===== 分类操作 =====
         function showAddCategoryModal() {
@@ -1107,15 +1268,6 @@
             if (confirm('确定要删除这个分类及其所有网站吗？')) {
                 navData.categories.splice(catIndex, 1);
                 Storage.saveData(navData);
-                render();
-            }
-        }
-
-        // ===== 恢复默认 =====
-        function resetData() {
-            if (confirm('确定要恢复默认设置吗？所有自定义添加的内容将被清除！')) {
-                navData = Storage.reset();
-                document.getElementById('searchEngine').value = 'baidu';
                 render();
             }
         }
