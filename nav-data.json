@@ -1,0 +1,539 @@
+{
+  "categories": [
+    {
+      "name": "★FA自动化",
+      "sites": [
+        {
+          "name": "米思米",
+          "url": "https://www.misumi.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "怡合达",
+          "url": "https://www.yhdfa.com/",
+          "icon": null
+        },
+        {
+          "name": "世嘉智尼",
+          "url": "https://global.sugatsune.com/cn/zh-cn/tech/products",
+          "icon": null
+        },
+        {
+          "name": "FITOK",
+          "url": "https://www.fitok.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "易买工品",
+          "url": "https://www.yesmro.cn/https://www.yesmro.cn/",
+          "icon": null
+        },
+        {
+          "name": "蚂蚁工场",
+          "url": "https://www.mymooo.com/",
+          "icon": null
+        },
+        {
+          "name": "云工厂",
+          "url": "https://yungongchang.com/zh-cn/",
+          "icon": null
+        },
+        {
+          "name": "西域",
+          "url": "https://www.ehsy.com/",
+          "icon": null
+        },
+        {
+          "name": "震坤行",
+          "url": "https://www.zkh.com/",
+          "icon": null
+        },
+        {
+          "name": "我的万物集",
+          "url": "https://www.mymro.cn/",
+          "icon": null
+        },
+        {
+          "name": "鑫方盛",
+          "url": "https://www.xfs.com/",
+          "icon": null
+        },
+        {
+          "name": "工品一号",
+          "url": "https://www.gpyh.com/",
+          "icon": null
+        },
+        {
+          "name": "UNILOK",
+          "url": "https://www.unilok.com/ch/",
+          "icon": null
+        },
+        {
+          "name": "BUYOUNG",
+          "url": "https://www.newbuyoung.com/eng/product_all.html",
+          "icon": null
+        },
+        {
+          "name": "MISUMI外网",
+          "url": "https://kr.misumi-ec.com/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★常用AI网址",
+      "sites": [
+        {
+          "name": "Google",
+          "url": "https://www.google.com/",
+          "icon": null
+        },
+        {
+          "name": "Grok",
+          "url": "https://grok.com/",
+          "icon": null
+        },
+        {
+          "name": "Kimi",
+          "url": "https://www.kimi.com/",
+          "icon": null
+        },
+        {
+          "name": "Gemini",
+          "url": "https://gemini.google.com/",
+          "icon": null
+        },
+        {
+          "name": "DeepSeek",
+          "url": "https://chat.deepseek.com/",
+          "icon": null
+        },
+        {
+          "name": "ChatGPT",
+          "url": "https://chatgpt.com/",
+          "icon": null
+        },
+        {
+          "name": "Cursor",
+          "url": "https://cursor.com/cn/agents",
+          "icon": "https://www.google.com/s2/favicons?domain=cursor.com&sz=32"
+        },
+        {
+          "name": "智普清言",
+          "url": "https://chatglm.cn/",
+          "icon": null
+        },
+        {
+          "name": "豆包",
+          "url": "https://www.doubao.com/",
+          "icon": null
+        },
+        {
+          "name": "Manus",
+          "url": "https://manus.im/",
+          "icon": null
+        },
+        {
+          "name": "韩文翻译",
+          "url": "https://chat.deepseek.com/a/chat/s/01033ea1-a558-4ea4-93a5-30c20f9cb145",
+          "icon": null
+        },
+        {
+          "name": "英语翻译",
+          "url": "https://chat.deepseek.com/a/chat/s/43771a57-ff1c-49f8-a7a8-f43354f3359b",
+          "icon": null
+        },
+        {
+          "name": "机械大佬",
+          "url": "https://chat.deepseek.com/a/chat/s/74cbd5d9-431a-40b1-9921-e9d8bf54ac52",
+          "icon": null
+        },
+        {
+          "name": "Poe",
+          "url": "https://poe.com/",
+          "icon": null
+        },
+        {
+          "name": "AI Studio",
+          "url": "https://aistudio.google.com/",
+          "icon": null
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/models",
+          "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai&sz=32"
+        },
+        {
+          "name": "NVIDIA",
+          "url": "https://build.nvidia.com/models",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★机械常用网址",
+      "sites": [
+        {
+          "name": "Robot交付进度",
+          "url": "https://doc.weixin.qq.com/",
+          "icon": null
+        },
+        {
+          "name": "软件库",
+          "url": "https://mp.weixin.qq.com/s/WIaG_Kx-qZqA74uux_CZxA",
+          "icon": null
+        },
+        {
+          "name": "Festo产品",
+          "url": "https://www.festo.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "SMC",
+          "url": "https://www.smc.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "igus CAD",
+          "url": "https://www.igus-cad.com/",
+          "icon": null
+        },
+        {
+          "name": "上银HIWIN",
+          "url": "https://www.hiwin.tw/",
+          "icon": null
+        },
+        {
+          "name": "南京工艺",
+          "url": "http://www.njyigong.cn/",
+          "icon": null
+        },
+        {
+          "name": "THK",
+          "url": "https://www.thk.com/",
+          "icon": null
+        },
+        {
+          "name": "NSK",
+          "url": "https://www.nsk.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "schaeffler",
+          "url": "https://interchange.schaeffler.com/changeLanguage.do?lang=2",
+          "icon": null
+        },
+        {
+          "name": "CADENAS",
+          "url": "https://www.cadenas.de/",
+          "icon": null
+        },
+        {
+          "name": "鸿元轴承",
+          "url": "https://www.lyzcyrt.com/",
+          "icon": null
+        },
+        {
+          "name": "洛阳轴承",
+          "url": "http://www.lyc.cn/",
+          "icon": null
+        },
+        {
+          "name": "Spieth",
+          "url": "https://www.spieth-maschinenelemente.de/en/",
+          "icon": null
+        },
+        {
+          "name": "三菱电机",
+          "url": "https://mitsubishielectric.yangben.cn/",
+          "icon": null
+        },
+        {
+          "name": "TC骨架油封",
+          "url": "https://docs.qq.com/sheet/DV25GcE52TkNQQWRl?tab=BB08J2",
+          "icon": null
+        },
+        {
+          "name": "YSR精密锁紧螺母",
+          "url": "https://docs.qq.com/doc/DV0lMWHJrbG9KaWR1",
+          "icon": null
+        },
+        {
+          "name": "普通平键尺寸",
+          "url": "https://docs.qq.com/doc/DV1JoZ1FtVlVsTG9r",
+          "icon": null
+        },
+        {
+          "name": "沉孔尺寸",
+          "url": "https://docs.qq.com/doc/DV2NWeW1od3ZMdVl0",
+          "icon": null
+        },
+        {
+          "name": "扳手轴孔尺寸",
+          "url": "https://docs.qq.com/doc/DV0dGcmVmcG1mZmh6",
+          "icon": null
+        },
+        {
+          "name": "螺纹底孔尺寸",
+          "url": "https://docs.qq.com/doc/DRXVIUk5XU0p5clBF",
+          "icon": null
+        },
+        {
+          "name": "O型圈",
+          "url": "https://docs.qq.com/doc/DV2FFdWJNaEdaenls",
+          "icon": null
+        },
+        {
+          "name": "轴用挡圈",
+          "url": "https://docs.qq.com/doc/DV2l0TEtWV3NxbkZU",
+          "icon": null
+        },
+        {
+          "name": "孔用挡圈",
+          "url": "https://docs.qq.com/doc/DV0FsV29QY2tleHpG",
+          "icon": null
+        },
+        {
+          "name": "物料需求登记表",
+          "url": "https://doc.weixin.qq.com/sheet/e3_AYMApQb5AF4CN7nXZukNgQWizFIgo?scode=ABEATAfDAAok0YTex4Af4AcgahAFE&tab=000001",
+          "icon": "https://www.google.com/s2/favicons?domain=doc.weixin.qq.com&sz=32"
+        },
+        {
+          "name": "ROBOT问题反馈",
+          "url": "https://doc.weixin.qq.com/sheet/e3_Aa8ApQb5AF4CNgKT526inQDGERV07?scode=ABEATAfDAAo332SBErAa8ApQb5AF4&version=5.0.0.8619&platform=win&tab=000001",
+          "icon": "https://www.google.com/s2/favicons?domain=doc.weixin.qq.com&sz=32"
+        }
+      ]
+    },
+    {
+      "name": "★常用网址",
+      "sites": [
+        {
+          "name": "百度一下",
+          "url": "https://www.baidu.com/",
+          "icon": null
+        },
+        {
+          "name": "有道翻译",
+          "url": "https://fanyi.youdao.com/",
+          "icon": null
+        },
+        {
+          "name": "百度网盘",
+          "url": "https://pan.baidu.com/",
+          "icon": null
+        },
+        {
+          "name": "高德地图",
+          "url": "https://www.amap.com/",
+          "icon": null
+        },
+        {
+          "name": "IT之家",
+          "url": "https://www.ithome.com/",
+          "icon": null
+        },
+        {
+          "name": "白描OCR",
+          "url": "https://web.baimiaoapp.com/",
+          "icon": null
+        },
+        {
+          "name": "PearOCR",
+          "url": "https://pearocr.com/",
+          "icon": null
+        },
+        {
+          "name": "在线PS",
+          "url": "https://ps.gaoding.com/",
+          "icon": null
+        },
+        {
+          "name": "快递100",
+          "url": "https://www.kuaidi100.com/",
+          "icon": null
+        },
+        {
+          "name": "简繁体转换",
+          "url": "https://www.aies.cn/",
+          "icon": null
+        },
+        {
+          "name": "旧OS",
+          "url": "https://copy.sh/v86/",
+          "icon": null
+        },
+        {
+          "name": "Github",
+          "url": "https://github.com/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★新闻",
+      "sites": [
+        {
+          "name": "新浪新闻",
+          "url": "https://news.sina.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "搜狐新闻",
+          "url": "https://news.sohu.com/",
+          "icon": null
+        },
+        {
+          "name": "澎湃新闻",
+          "url": "https://www.thepaper.cn/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★视频网站",
+      "sites": [
+        {
+          "name": "爱酷看看",
+          "url": "https://www.ikukk.com/",
+          "icon": null
+        },
+        {
+          "name": "哔哩哔哩",
+          "url": "https://www.bilibili.com/",
+          "icon": null
+        },
+        {
+          "name": "抖音",
+          "url": "https://www.douyin.com/",
+          "icon": null
+        },
+        {
+          "name": "头条号",
+          "url": "https://mp.toutiao.com/",
+          "icon": null
+        },
+        {
+          "name": "爱奇艺",
+          "url": "https://www.iqiyi.com/",
+          "icon": null
+        },
+        {
+          "name": "咪咕视频",
+          "url": "https://www.miguvideo.com/",
+          "icon": null
+        },
+        {
+          "name": "虎牙直播",
+          "url": "https://www.huya.com/",
+          "icon": null
+        },
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/",
+          "icon": null
+        },
+        {
+          "name": "YTDownloader",
+          "url": "https://www.y2mate.com/",
+          "icon": null
+        },
+        {
+          "name": "优酷",
+          "url": "https://www.youku.com/",
+          "icon": null
+        },
+        {
+          "name": "腾讯视频",
+          "url": "https://v.qq.com/",
+          "icon": null
+        },
+        {
+          "name": "搜狐视频",
+          "url": "https://tv.sohu.com/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★白嫖之家",
+      "sites": [
+        {
+          "name": "Steam",
+          "url": "https://store.steampowered.com/",
+          "icon": null
+        },
+        {
+          "name": "EPIC",
+          "url": "https://www.epicgames.com/",
+          "icon": null
+        },
+        {
+          "name": "GOG",
+          "url": "https://www.gog.com/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★购物",
+      "sites": [
+        {
+          "name": "淘宝",
+          "url": "https://www.taobao.com/",
+          "icon": null
+        },
+        {
+          "name": "京东",
+          "url": "https://www.jd.com/",
+          "icon": null
+        },
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com/",
+          "icon": null
+        },
+        {
+          "name": "eBay",
+          "url": "https://www.ebay.com/",
+          "icon": null
+        },
+        {
+          "name": "什么值得买",
+          "url": "https://www.smzdm.com/",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "★体育",
+      "sites": [
+        {
+          "name": "新浪体育",
+          "url": "https://sports.sina.com.cn/",
+          "icon": null
+        },
+        {
+          "name": "腾讯体育",
+          "url": "https://sports.qq.com/",
+          "icon": null
+        },
+        {
+          "name": "虎扑体育",
+          "url": "https://www.hupu.com/",
+          "icon": null
+        },
+        {
+          "name": "直播吧",
+          "url": "https://www.zhibo8.cc/",
+          "icon": null
+        },
+        {
+          "name": "CCTV5",
+          "url": "https://sports.cctv.com/",
+          "icon": null
+        }
+      ]
+    }
+  ]
+}

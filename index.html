@@ -210,8 +210,13 @@
         }
         .btn-add-category { background: #4CAF50; color: white; }
         .btn-add-category:hover { background: #45a049; }
+        .btn-export-data { background: #2196F3; color: white; }
+        .btn-export-data:hover { background: #1976D2; }
+        .btn-import-data { background: #ff9800; color: white; }
+        .btn-import-data:hover { background: #f57c00; }
         .btn-exit-manage { background: #757575; color: white; }
         .btn-exit-manage:hover { background: #616161; }
+        .manage-toolbar span { flex: 1; min-width: 200px; }
 
         /* 分类标题 */
         .category-title {
@@ -517,10 +522,13 @@
             </div>
             <!-- 管理工具栏 -->
             <div class="manage-toolbar" id="manageToolbar">
-                <span>📝 管理模式：点击"+"添加网站，点击"×"删除；拖拽网站可排序（可拖入其它分类或列表空白处末尾）；拖拽分类标题左侧 ⋮⋮ 可调整分类顺序；顶部「取消」可放弃本次修改并退出</span>
+                <span>📝 管理模式：增删改拖后数据保存在本机浏览器；换电脑请「导出数据」并将 nav-data.json 与 index.html 一并同步</span>
                 <button class="btn-add-category" onclick="showAddCategoryModal()">+ 添加分类</button>
+                <button class="btn-export-data" onclick="exportNavData()">导出数据</button>
+                <button class="btn-import-data" onclick="triggerImportNavData()">导入数据</button>
                 <button class="btn-exit-manage" onclick="toggleManageMode()">退出管理</button>
             </div>
+            <input type="file" id="navDataImportInput" accept=".json,application/json" style="display:none" onchange="importNavData(event)">
             <div class="nav-content" id="navContent"></div>
         </div>
 
@@ -693,23 +701,75 @@
             ]
         };
 
+        // ===== 导航数据签名（用于检测 index.html / nav-data.json 是否已更新）=====
+        function computeDataSig(data) {
+            const str = JSON.stringify((data && data.categories) ? data.categories : data);
+            let h = 5381;
+            for (let i = 0; i < str.length; i++) {
+                h = ((h << 5) + h) ^ str.charCodeAt(i);
+            }
+            return (h >>> 0).toString(36);
+        }
+
+        function cloneNavData(data) {
+            return JSON.parse(JSON.stringify(data));
+        }
+
         // ===== 存储管理 =====
         const Storage = {
             DATA_KEY: 'home_nav_data_v2',
+            FILE_SIG_KEY: 'home_nav_file_sig_v1',
+            BUNDLED_SIG_KEY: 'home_nav_bundled_sig_v1',
             ENGINE_KEY: 'home_search_engine',
             ICON_CACHE_KEY: 'home_icon_cache_v1',
-            
+
+            /** index.html 内 defaultData 变更时，用文件数据覆盖本机旧缓存 */
+            applyDefaultDataIfFileUpdated() {
+                const fileSig = computeDataSig(defaultData);
+                const storedFileSig = localStorage.getItem(this.FILE_SIG_KEY);
+                if (storedFileSig === fileSig) return null;
+                // 从旧版升级：本机已有数据则保留，仅记录当前文件签名
+                if (storedFileSig === null && localStorage.getItem(this.DATA_KEY)) {
+                    localStorage.setItem(this.FILE_SIG_KEY, fileSig);
+                    return null;
+                }
+                const data = cloneNavData(defaultData);
+                localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+                localStorage.setItem(this.FILE_SIG_KEY, fileSig);
+                return data;
+            },
+
+            /** 同目录 nav-data.json（导出后随项目同步）变更时优先采用 */
+            applyBundledDataIfUpdated(bundled) {
+                if (!bundled || !Array.isArray(bundled.categories)) return null;
+                const bundledSig = computeDataSig(bundled);
+                const storedBundledSig = localStorage.getItem(this.BUNDLED_SIG_KEY);
+                if (storedBundledSig === bundledSig) return null;
+                const data = cloneNavData(bundled);
+                localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+                localStorage.setItem(this.BUNDLED_SIG_KEY, bundledSig);
+                localStorage.setItem(this.FILE_SIG_KEY, computeDataSig(defaultData));
+                return data;
+            },
+
             getData() {
                 try {
                     const data = localStorage.getItem(this.DATA_KEY);
-                    return data ? JSON.parse(data) : JSON.parse(JSON.stringify(defaultData));
-                } catch (e) {
-                    return JSON.parse(JSON.stringify(defaultData));
-                }
+                    if (data) return JSON.parse(data);
+                } catch (e) { /* fall through */ }
+                const data = cloneNavData(defaultData);
+                localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+                localStorage.setItem(this.FILE_SIG_KEY, computeDataSig(defaultData));
+                return data;
             },
-            
+
             saveData(data) {
                 localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+            },
+
+            persistImportedData(data) {
+                localStorage.setItem(this.DATA_KEY, JSON.stringify(data));
+                localStorage.setItem(this.BUNDLED_SIG_KEY, computeDataSig(data));
             },
             
             getEngine() {
@@ -754,7 +814,7 @@
         };
 
         // ===== 全局状态 =====
-        let navData = Storage.getData();
+        let navData = cloneNavData(defaultData);
         let isManageMode = false;
         /** 进入管理模式瞬间的 navData 深拷贝，用于「取消」放弃本次会话内的修改 */
         let manageSessionSnapshot = null;
@@ -1272,6 +1332,72 @@
             }
         }
 
+        // ===== 跨设备同步：导出 / 导入 nav-data.json =====
+        async function fetchBundledNavData() {
+            try {
+                const resp = await fetch('nav-data.json?t=' + Date.now());
+                if (!resp.ok) return null;
+                const json = await resp.json();
+                if (!json || !Array.isArray(json.categories)) return null;
+                return json;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        async function loadInitialNavData() {
+            const bundled = await fetchBundledNavData();
+            if (bundled) {
+                const fromBundled = Storage.applyBundledDataIfUpdated(bundled);
+                if (fromBundled) return fromBundled;
+            }
+            const fromFile = Storage.applyDefaultDataIfFileUpdated();
+            if (fromFile) return fromFile;
+            return Storage.getData();
+        }
+
+        function exportNavData() {
+            const payload = { categories: navData.categories };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'nav-data.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('已下载 nav-data.json。\n\n请将文件放到与 index.html 同一目录，并和 index.html 一起复制/同步到其它电脑（或通过 Git 提交）。\n其它电脑打开页面后会自动加载该文件中的导航数据。');
+        }
+
+        function triggerImportNavData() {
+            document.getElementById('navDataImportInput').click();
+        }
+
+        function importNavData(e) {
+            const file = e.target.files && e.target.files[0];
+            e.target.value = '';
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                try {
+                    const json = JSON.parse(ev.target.result);
+                    if (!json || !Array.isArray(json.categories)) {
+                        alert('无效的数据文件：需要包含 categories 数组');
+                        return;
+                    }
+                    navData = cloneNavData(json);
+                    Storage.persistImportedData(navData);
+                    if (isManageMode && manageSessionSnapshot) {
+                        manageSessionSnapshot = cloneNavData(navData);
+                    }
+                    render();
+                    alert('导入成功，导航数据已更新。');
+                } catch (err) {
+                    alert('无法读取数据文件，请确认是有效的 JSON 格式。');
+                }
+            };
+            reader.readAsText(file, 'utf-8');
+        }
+
         // ===== 模态框 =====
         function closeModal() {
             document.getElementById('siteModal').style.display = 'none';
@@ -1378,7 +1504,10 @@
 
         // ===== 初始化 =====
         loadEngine();
-        render();
+        loadInitialNavData().then(data => {
+            navData = data;
+            render();
+        });
     </script>
 </body>
 </html>
